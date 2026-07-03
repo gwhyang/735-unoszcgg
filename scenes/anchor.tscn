@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://nchor001"]
+
+[ext_resource type="Script" path="res://scripts/anchor.gd" id="1_anchor"]
+
+[node name="Anchor" type="Node2D"]
+script = ExtResource("1_anchor")
+
+[node name="Head" type="Polygon2D" parent="."]
+color = Color(0.82, 0.78, 0.55, 1)
+polygon = PackedVector2Array(-6, -4, 10, 0, -6, 4)
+
+[node name="Chain" type="Line2D" parent="."]
+width = 2.0
+default_color = Color(0.65, 0.6, 0.45, 1)
+points = PackedVector2Array(0, 0, -12, 0)

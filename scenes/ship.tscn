@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://ship001"]
+
+[ext_resource type="Script" path="res://scripts/ship.gd" id="1_ship"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape_ship"]
+radius = 15.0
+height = 38.0
+
+[node name="Ship" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 1
+script = ExtResource("1_ship")
+
+[node name="Sprite" type="Polygon2D" parent="."]
+color = Color(0.55, 0.32, 0.18, 1)
+polygon = PackedVector2Array(-14, 20, 0, -24, 14, 20, 0, 12)
+
+[node name="Sail" type="Polygon2D" parent="."]
+color = Color(0.92, 0.88, 0.78, 1)
+polygon = PackedVector2Array(-2, -8, 2, -8, 2, 8, -2, 14)
+
+[node name="Flag" type="Polygon2D" parent="."]
+color = Color(0.85, 0.15, 0.15, 1)
+polygon = PackedVector2Array(2, -18, 10, -14, 2, -10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape_ship")
+
+[node name="Rope" type="Line2D" parent="."]
+visible = false
+width = 2.5
+default_color = Color(0.78, 0.72, 0.55, 1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.9, 0.9)
+position_smoothing_enabled = true
