@@ -6,6 +6,7 @@ signal hit_ship
 signal ship_hurt
 signal fast
 signal slow
+@export var fast_buffer:float = 0.2
 
 @onready var game: Node2D = $".."
 @onready var anchor: Area2D = %anchor
@@ -45,6 +46,7 @@ var is_fast:bool=false:
 			fast.emit()
 		else:
 			slow.emit()
+var fast_buffer_timer:float
 
 func _ready() -> void:
 	EventBus.heal.connect(
@@ -53,6 +55,7 @@ func _ready() -> void:
 			)
 
 func _physics_process(delta: float) -> void:
+	fast_buffer_timer -= delta
 	if hp>0:
 		process_move(delta)
 	var collision:= move_and_collide(delta*vel)
@@ -76,7 +79,9 @@ func process_move(delta:float):
 		#var dv=(0.6*abs(sin(dir.angle_to(vel))))*dir.normalized()*iradius*iangular_speed*iangular_speed #2试着按·默认圆周运动，并且使得趋向于之
 		#dv = dv.normalized()*max(dv.length(),min_accler)
 		#vel+= dv
-	is_fast = vel.length()>high_speed
+	if vel.length()>high_speed:
+		fast_buffer_timer = fast_buffer
+	is_fast = fast_buffer_timer >=0
 
 func hit(area: Area2D):
 	print("hit ship")

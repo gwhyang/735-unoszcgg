@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://bi5fg5yo1chtp"]
+
+[ext_resource type="PackedScene" uid="uid://0i5ea1aeq3dc" path="res://scenes/enemys/enemy.tscn" id="1_kt4mm"]
+
+[node name="intercept" unique_id=1208423677 instance=ExtResource("1_kt4mm")]

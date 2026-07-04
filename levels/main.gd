@@ -18,6 +18,7 @@ enum {DRIFT,SHOOT,TOWRAD}
 @onready var kill_count_label: Label = %kill_count_label
 @onready var finui_player: AnimationPlayer = %FinuiPlayer
 @onready var speed_display: AnimationPlayer = %speed_display
+@onready var speed_label: RichTextLabel = $"GameUI/VBoxContainer2/speed label"
 
 @onready var glasses: TextureRect = $GameUI/glasses
 @onready var margin: ColorRect = $GameUI/margin
@@ -41,7 +42,10 @@ func _ready() -> void:
 	set_player(ship)
 	hp_container.set_hp(max_hp)
 	current_count = target_kill_count
+	_update_speed_label()
 	
+func _process(delta: float) -> void:
+	_update_speed_label()
 
 func _physics_process(delta: float) -> void:
 	if not enable_input:
@@ -80,6 +84,15 @@ func set_player(player:Player):
 	ship.iangular_speed = iangular_speed
 	ship.max_hp = max_hp
 	ship.hp = max_hp
+
+func _update_speed_label() -> void:
+	var speed_value:int = roundi(ship.vel.length())
+	var high_speed_value:int = roundi(high_speed)
+	var speed_text:String = "速度：%d/%d" % [speed_value, high_speed_value]
+	if speed_value > high_speed_value:
+		speed_label.text = "[color=red]%s[/color]" % speed_text
+	else:
+		speed_label.text = "[color=white]%s[/color]" % speed_text
 	
 func win():
 	finui_player.play("lose")

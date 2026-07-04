@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://detck8feioltd"]
+
+[ext_resource type="PackedScene" uid="uid://0i5ea1aeq3dc" path="res://scenes/enemys/enemy.tscn" id="1_wngix"]
+
+[node name="direct" unique_id=1208423677 instance=ExtResource("1_wngix")]
+
+[node name="ai" parent="." index="3" unique_id=597079033]
+behavior_type = 0

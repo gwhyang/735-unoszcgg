@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://jac6hfd48808"]
+
+[ext_resource type="PackedScene" uid="uid://0i5ea1aeq3dc" path="res://scenes/enemys/enemy.tscn" id="1_oyfcj"]
+
+[node name="Pincer" unique_id=1208423677 instance=ExtResource("1_oyfcj")]
+
+[node name="ai" parent="." index="3" unique_id=597079033]
+behavior_type = 2
