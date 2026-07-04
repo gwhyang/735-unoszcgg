@@ -125,4 +125,44 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5)
 theme_override_constants/shadow_offset_x = 1
 theme_override_constants/shadow_offset_y = 1
 text = "鼠标左键向海水抛出船锚（不挂墙壁）
-锚在水中定住后，沿绳索被拉过去 | 再次点击收回"
+锚在水中定住后，沿绳索被拉过去 | 撞岸失去生命"
+
+[node name="HUD" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="LivesLabel" type="Label" parent="UI/HUD"]
+layout_mode = 0
+offset_left = 760.0
+offset_top = 16.0
+offset_right = 944.0
+offset_bottom = 44.0
+theme_override_colors/font_color = Color(1, 0.85, 0.7, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+text = "生命: 3 / 3"
+horizontal_alignment = 2
+
+[node name="GameOverPanel" type="PanelContainer" parent="UI"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -60.0
+offset_right = 180.0
+offset_bottom = 60.0
+
+[node name="GameOverLabel" type="Label" parent="UI/GameOverPanel"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.96, 1, 1)
+text = "船只损毁！按 R 重新开始"
+horizontal_alignment = 1
