@@ -1,6 +1,7 @@
 extends Node2D
 enum {DRIFT,SHOOT,TOWRAD}
 @export_group("game message")
+@export var high_speed:float = 2300
 @export_group("move status")
 @export var anchor_speed:float = 2000
 @export var ideal_angular_speed:float = 1.6
@@ -19,7 +20,7 @@ var iradius:float
 var iangular_speed:float
 
 func _physics_process(delta: float) -> void:
-	print(target)
+	print(vel.length())
 	process_move(delta)
 	if Input.is_action_just_pressed("fire_anchor"):
 		target = get_global_mouse_position()
@@ -68,3 +69,14 @@ func set_anchor(enable:bool):
 	if enable:
 		anchor.global_position = ship.global_position
 	
+
+func hit():
+	pass
+func hurt():
+	pass
+
+func _on_hithurt_area_entered(area: Area2D) -> void:
+	if vel.length() > high_speed:
+		hit()
+	else:
+		hurt()

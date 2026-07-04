@@ -2,9 +2,21 @@
 
 [ext_resource type="Script" uid="uid://cj2n8xsryrfdj" path="res://main.gd" id="1_h2yge"]
 [ext_resource type="Texture2D" uid="uid://37gw830scn73" path="res://icon.svg" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://cefdh74h86re" path="res://ship.gd" id="2_1bvp3"]
+[ext_resource type="Script" uid="uid://pinu0rh8y5fq" path="res://trail.gd" id="4_1bvp3"]
+
+[sub_resource type="Curve" id="Curve_lquwl"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.87666667, 0.5935829), -0.16595943, -0.16595943, 0, 0, Vector2(0.97333336, 0.36898404), -2.7072208, -2.7072208, 0, 0, Vector2(1, 0), -2.6737964, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Gradient" id="Gradient_7mycd"]
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
 radius = 61.221706
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yf5fn"]
+radius = 77.23341
 
 [node name="Node2D" type="Node2D" unique_id=1061596412]
 script = ExtResource("1_h2yge")
@@ -12,6 +24,17 @@ script = ExtResource("1_h2yge")
 [node name="ship" type="Area2D" parent="." unique_id=580241586]
 unique_name_in_owner = true
 priority = -7
+script = ExtResource("2_1bvp3")
+
+[node name="trail" type="Node" parent="ship" unique_id=280041302]
+
+[node name="Line2D" type="Line2D" parent="ship/trail" unique_id=1080637423]
+points = PackedVector2Array(281, 21, 116, 88, -13, 100)
+width = 95.655
+width_curve = SubResource("Curve_lquwl")
+gradient = SubResource("Gradient_7mycd")
+script = ExtResource("4_1bvp3")
+max_point_count = 50
 
 [node name="shiptexture" type="Sprite2D" parent="ship" unique_id=430072545]
 texture = ExtResource("1_ig7tw")
@@ -19,8 +42,17 @@ texture = ExtResource("1_ig7tw")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ship" unique_id=894571897]
 shape = SubResource("CircleShape2D_g4v7s")
 
+[node name="hit&hurt" type="Area2D" parent="ship" unique_id=240697907]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ship/hit&hurt" unique_id=2146541113]
+shape = SubResource("CircleShape2D_yf5fn")
+debug_color = Color(0.7702828, 0.29639828, 0.8309733, 0.41960785)
+
 [node name="anchor" type="Area2D" parent="." unique_id=1138675147]
 unique_name_in_owner = true
+visible = false
 modulate = Color(0.77489233, 0, 0.38201228, 1)
 scale = Vector2(0.425, 0.425)
 
@@ -45,3 +77,5 @@ grow_vertical = 2
 [node name="Camera2D" type="Camera2D" parent="." unique_id=109515704]
 position = Vector2(432, 223)
 zoom = Vector2(0.445, 0.445)
+
+[connection signal="area_entered" from="ship/hit&hurt" to="." method="_on_hithurt_area_entered"]

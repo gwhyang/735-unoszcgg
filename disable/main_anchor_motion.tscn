@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://xod81qrymunn"]
+
+[ext_resource type="Script" uid="uid://cx01qntpqyv7u" path="res://disable/main_anchor_motion.gd" id="1_anchor_motion"]
+[ext_resource type="Texture2D" uid="uid://37gw830scn73" path="res://icon.svg" id="2_icon"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+radius = 61.221706
+
+[node name="Node2D" type="Node2D" unique_id=1061596412]
+script = ExtResource("1_anchor_motion")
+
+[node name="ship" type="Area2D" parent="." unique_id=580241586]
+unique_name_in_owner = true
+priority = -7
+
+[node name="shiptexture" type="Sprite2D" parent="ship" unique_id=430072545]
+texture = ExtResource("2_icon")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ship" unique_id=894571897]
+shape = SubResource("CircleShape2D_g4v7s")
+
+[node name="anchor" type="Area2D" parent="." unique_id=1138675147]
+unique_name_in_owner = true
+visible = false
+modulate = Color(0.77489233, 0, 0.38201228, 1)
+scale = Vector2(0.425, 0.425)
+
+[node name="shiptexture" type="Sprite2D" parent="anchor" unique_id=771469853]
+scale = Vector2(1.0000001, 1.0000001)
+texture = ExtResource("2_icon")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="anchor" unique_id=1172970093]
+scale = Vector2(1.0000001, 1.0000001)
+shape = SubResource("CircleShape2D_g4v7s")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=621873269]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1231408323]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=109515704]
+position = Vector2(432, 223)
+zoom = Vector2(0.445, 0.445)
