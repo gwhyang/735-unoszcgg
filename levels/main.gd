@@ -97,6 +97,8 @@ func _update_speed_label() -> void:
 func win():
 	finui_player.play("lose")
 	enable_input = false
+	get_tree().change_scene_to_file(MENU)
+	
 func lose():
 	finui_player.play("lose")
 	enable_input = false

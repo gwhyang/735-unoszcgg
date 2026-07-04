@@ -22,7 +22,7 @@ tracks/0/path = NodePath("GameUI/glasses:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(-0.06666667),
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
@@ -2235,6 +2235,8 @@ _data = {
 [node name="level" type="Node2D" unique_id=1061596412]
 script = ExtResource("1_p8yh6")
 high_speed = 800.0
+ideal_angular_speed = 1.2
+min_accler = 40.0
 
 [node name="speed_display" type="AnimationPlayer" parent="." unique_id=1168429414]
 unique_name_in_owner = true

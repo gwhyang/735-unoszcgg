@@ -1,4 +1,5 @@
 extends ProCamera2D
+@export var basic_zoom:Vector2=0.7*Vector2.ONE
 @export var fast_zoom:float = 0.4
 @export var slow_zoom:float = 1
 @export var zoom_speed:float = 0.3
@@ -11,9 +12,10 @@ var current_zoom:float = 1
 var shake_tween:Tween
 
 func _process(delta: float) -> void:
-	zoom = current_zoom*Vector2.ONE
+	zoom = current_zoom*basic_zoom
 	current_zoom = move_toward(current_zoom,target_zoom_scale,delta*zoom_speed)
 	super(delta)
+	
 func _on_ship_hit_ship() -> void:
 	if shake_tween:
 		if shake_tween.is_running():
