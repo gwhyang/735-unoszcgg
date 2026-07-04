@@ -4,7 +4,7 @@ extends CharacterBody2D
 const ANCHOR_SCENE := preload("res://scenes/anchor.tscn")
 
 # 海水阻力：未定锚时每帧衰减速度
-@export var water_drag: float = 1.4
+@export var water_drag: float = 10
 # 定锚后沿绳索被拉向锚点的力度
 @export var pull_force: float = 540.0
 # 最大航行速度
