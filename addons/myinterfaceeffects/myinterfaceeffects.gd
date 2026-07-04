@@ -1,7 +1,6 @@
 @tool
 extends EditorPlugin
 
-#TODO 相机， 那个震动框的，矩形trasnform的
 func _enable_plugin() -> void:
 	# Add autoloads here.
 	pass

@@ -29,7 +29,8 @@ var current_count:int =0:
 		kill_count_label.text = str(current_count)+"/"+str(target_kill_count)
 var enable_input = true
 
-#TODO game loop
+const MENU:String = "uid://cx1yr4eluys35"
+
 
 func _ready() -> void:
 	set_player(ship)
@@ -91,4 +92,18 @@ func _on_ship_hit_ship() -> void:
 func _on_ship_hp_changed(new_hp: int) -> void:
 	if new_hp == 0:
 		lose()
+	pass # Replace with function body.
+
+
+func _on_restart_pressed() -> void:
+	get_tree().reload_current_scene()
+	pass # Replace with function body.
+
+
+func _on_menu_pressed() -> void:
+	get_tree().change_scene_to_file(MENU)
+	pass # Replace with function body.
+
+
+func _on_setting_pressed() -> void:
 	pass # Replace with function body.

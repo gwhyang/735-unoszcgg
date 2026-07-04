@@ -25,12 +25,11 @@ script = ExtResource("1_v4325")
 [node name="trail" type="Node" parent="." unique_id=1183586022]
 
 [node name="Line2D" type="Line2D" parent="trail" unique_id=1041729026]
-points = PackedVector2Array(281, 21, 116, 88, -13, 100)
-width = 40.0
+width = 27.0
 width_curve = SubResource("Curve_lquwl")
 gradient = SubResource("Gradient_7mycd")
 script = ExtResource("2_c3vuw")
-max_point_count = 50
+max_point_count = 25
 
 [node name="shiptexture" type="Sprite2D" parent="." unique_id=79890555]
 scale = Vector2(0.16, 0.16)

@@ -34,4 +34,6 @@ script = ExtResource("3_qi2p4")
 shape = SubResource("CircleShape2D_4gyqm")
 debug_color = Color(0.42484996, 0.460311, 1, 0.41960785)
 
+[node name="ai" type="Node2D" parent="." unique_id=597079033]
+
 [connection signal="hurt" from="hurtbox" to="." method="destory"]
