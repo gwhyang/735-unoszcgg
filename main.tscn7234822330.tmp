@@ -4,8 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://37gw830scn73" path="res://icon.svg" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://br54fy6kmtwhu" path="res://player.tscn" id="2_h2yge"]
 [ext_resource type="PackedScene" uid="uid://0i5ea1aeq3dc" path="res://enemy.tscn" id="4_1bvp3"]
-[ext_resource type="Script" uid="uid://dnnoebmtjxpiv" path="res://hpbar.gd" id="5_7mycd"]
-[ext_resource type="PackedScene" uid="uid://mvl7ilbpl71w" path="res://ui/hp.tscn" id="6_272bh"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1bvp3"]
 normal = Vector2(0, 1)
@@ -22,7 +20,6 @@ normal = Vector2(-1, 0)
 
 [node name="game" type="Node2D" unique_id=1061596412]
 script = ExtResource("1_h2yge")
-high_speed = 0.0
 
 [node name="playground" type="Node2D" parent="." unique_id=920904758]
 
@@ -62,10 +59,8 @@ position = Vector2(105, 50)
 
 [node name="ship" parent="." unique_id=1596945220 instance=ExtResource("2_h2yge")]
 unique_name_in_owner = true
-position = Vector2(143, 117)
 
 [node name="Camera2D" type="Camera2D" parent="ship" unique_id=1585217460]
-zoom = Vector2(1.935, 1.935)
 
 [node name="anchor" type="Area2D" parent="." unique_id=1138675147]
 unique_name_in_owner = true
@@ -81,26 +76,16 @@ texture = ExtResource("1_ig7tw")
 scale = Vector2(1.0000001, 1.0000001)
 shape = SubResource("CircleShape2D_g4v7s")
 
-[node name="GameUI" type="CanvasLayer" parent="." unique_id=621873269]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=621873269]
 
-[node name="HBoxContainer" type="HBoxContainer" parent="GameUI" unique_id=1718127027]
-unique_name_in_owner = true
-offset_right = 392.0
-offset_bottom = 128.0
-scale = Vector2(0.605, 0.605)
-script = ExtResource("5_7mycd")
-
-[node name="Hp" parent="GameUI/HBoxContainer" unique_id=429378753 instance=ExtResource("6_272bh")]
-layout_mode = 2
-
-[node name="Hp2" parent="GameUI/HBoxContainer" unique_id=820315054 instance=ExtResource("6_272bh")]
-layout_mode = 2
-
-[node name="Hp3" parent="GameUI/HBoxContainer" unique_id=1633997048 instance=ExtResource("6_272bh")]
-layout_mode = 2
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1231408323]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=109515704]
 position = Vector2(432, 223)
 zoom = Vector2(0.445, 0.445)
-
-[connection signal="hp_changed" from="ship" to="GameUI/HBoxContainer" method="set_hp"]

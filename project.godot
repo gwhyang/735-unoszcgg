@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="735unoszcgg"
-run/main_scene="res://scenes/main.tscn"
+run/main_scene="uid://b1j6lu8cqej0s"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -43,6 +43,7 @@ restart={
 
 2d_physics/layer_2="player"
 2d_physics/layer_3="enemy"
+2d_physics/layer_4="land"
 
 [rendering]
 

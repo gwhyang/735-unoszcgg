@@ -2,6 +2,7 @@ extends Node2D
 enum {DRIFT,SHOOT,TOWRAD}
 @export_group("game message")
 @export var high_speed:float = 2300
+@export var max_hp:int =3
 @export_group("move status")
 @export var anchor_speed:float = 2000
 @export var ideal_angular_speed:float = 1.6
@@ -11,6 +12,7 @@ enum {DRIFT,SHOOT,TOWRAD}
 
 @onready var ship: Player = %ship
 @onready var anchor: Area2D = %anchor
+@onready var hp_container: HPContainer = %HBoxContainer
 
 var target:Vector2
 var vel:Vector2
@@ -20,7 +22,7 @@ var iangular_speed:float
 
 func _ready() -> void:
 	set_player(ship)
-	
+	hp_container.set_hp(max_hp)
 	
 
 func _physics_process(delta: float) -> void:
@@ -55,6 +57,8 @@ func set_player(player:Player):
 	ship.ideal_angular_speed = ideal_angular_speed
 	ship.iradius = iradius
 	ship.iangular_speed = iangular_speed
+	ship.max_hp = max_hp
+	ship.hp = max_hp
 	
 
 func hit():
