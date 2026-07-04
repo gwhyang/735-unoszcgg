@@ -29,15 +29,11 @@ columns = 3
 
 [node name="LevelButton" parent="GridContainer" unique_id=630706959 instance=ExtResource("2_udkah")]
 layout_mode = 2
+text = "1"
+level = "res://levels/level_1.tscn"
 
 [node name="LevelButton2" parent="GridContainer" unique_id=2057640362 instance=ExtResource("2_udkah")]
 layout_mode = 2
-
-[node name="LevelButton3" parent="GridContainer" unique_id=943116449 instance=ExtResource("2_udkah")]
-layout_mode = 2
-
-[node name="LevelButton4" parent="GridContainer" unique_id=1298538116 instance=ExtResource("2_udkah")]
-layout_mode = 2
-
-[node name="LevelButton5" parent="GridContainer" unique_id=1228224328 instance=ExtResource("2_udkah")]
-layout_mode = 2
+text = "2
+"
+level = "res://levels/level_2.tscn"

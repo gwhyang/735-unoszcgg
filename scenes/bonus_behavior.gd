@@ -1,4 +1,4 @@
-extends "res://scenes/enemy_behavior.gd"
+extends EnemyBehavior
 
 func _get_target() -> Vector2:
 	if player == null or not is_instance_valid(player):
