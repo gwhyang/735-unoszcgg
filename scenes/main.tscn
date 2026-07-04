@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://main001"]
 
-[ext_resource type="Script" path="res://scripts/main.gd" id="1_main"]
+[ext_resource type="Script" uid="uid://csk6ehdcm8gg1" path="res://disable/main.gd" id="1_main"]
 [ext_resource type="PackedScene" uid="uid://ship001" path="res://scenes/ship.tscn" id="2_ship"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape_wall_h"]

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ship001"]
 
-[ext_resource type="Script" uid="uid://cbb6nb0xaao56" path="res://scripts/ship.gd" id="1_ship"]
+[ext_resource type="Script" uid="uid://cbb6nb0xaao56" path="res://disable/ship.gd" id="1_ship"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape_ship"]
 radius = 15.0
