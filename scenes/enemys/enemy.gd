@@ -14,4 +14,3 @@ func destory():
 func disableself():
 	collision_layer = 0
 	sprite.hide()
-#TODO enmey ai

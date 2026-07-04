@@ -35,11 +35,12 @@ var vel:Vector2
 var iradius:float
 var iangular_speed:float
 var ideal_angular_speed:float = 1.6
-var is_fast:bool:
+var is_fast:bool=false:
 	set(v):
 		if v==  is_fast:
 			return
 		is_fast = v
+		Game.is_fast = is_fast
 		if is_fast:
 			fast.emit()
 		else:

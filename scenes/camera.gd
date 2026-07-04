@@ -10,7 +10,6 @@ var target_zoom_scale:float = 1
 var current_zoom:float = 1
 var shake_tween:Tween
 
-#TODO 相机
 func _process(delta: float) -> void:
 	zoom = current_zoom*Vector2.ONE
 	current_zoom = move_toward(current_zoom,target_zoom_scale,delta*zoom_speed)

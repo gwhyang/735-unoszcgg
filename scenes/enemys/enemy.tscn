@@ -1,15 +1,19 @@
 [gd_scene format=3 uid="uid://0i5ea1aeq3dc"]
 
-[ext_resource type="Script" uid="uid://dpu23i5fv5i73" path="res://scenes/enemy.gd" id="1_4gyqm"]
+[ext_resource type="Script" uid="uid://dpu23i5fv5i73" path="res://scenes/enemys/enemy.gd" id="1_4gyqm"]
 [ext_resource type="Texture2D" uid="uid://37gw830scn73" path="res://icon.svg" id="1_7k104"]
 [ext_resource type="Script" uid="uid://dst3qm5ffjtix" path="res://class/hurtbox.gd" id="3_qi2p4"]
+[ext_resource type="Script" uid="uid://bj7sxrie1jb7t" path="res://scenes/enemys/enemy_behavior.gd" id="4_5uy6h"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4gyqm"]
 radius = 12.85
 
-[node name="enemy" type="CharacterBody2D" unique_id=1208423677]
+[sub_resource type="CircleShape2D" id="CircleShape2D_yf5fn"]
+radius = 876.57
+
+[node name="enemy" type="CharacterBody2D" unique_id=1208423677 groups=["enemy"]]
 collision_layer = 4
 collision_mask = 2
 motion_mode = 1
@@ -35,5 +39,21 @@ shape = SubResource("CircleShape2D_4gyqm")
 debug_color = Color(0.42484996, 0.460311, 1, 0.41960785)
 
 [node name="ai" type="Node2D" parent="." unique_id=597079033]
+script = ExtResource("4_5uy6h")
+behavior_type = 1
+speed = 500.0
+
+[node name="alert_area" type="Area2D" parent="ai" unique_id=1833113992]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ai/alert_area" unique_id=624047473]
+shape = SubResource("CircleShape2D_yf5fn")
+debug_color = Color(0.80449617, 0.39392877, 0.36812732, 0.35686275)
+
+[node name="NavigationAgent" type="NavigationAgent2D" parent="ai" unique_id=879899663]
+unique_name_in_owner = true
 
 [connection signal="hurt" from="hurtbox" to="." method="destory"]
+[connection signal="body_entered" from="ai/alert_area" to="ai" method="_on_alert_area_body_entered"]
+[connection signal="body_exited" from="ai/alert_area" to="ai" method="_on_alert_area_body_exited"]
