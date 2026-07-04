@@ -2237,6 +2237,7 @@ script = ExtResource("1_p8yh6")
 high_speed = 800.0
 ideal_angular_speed = 1.2
 min_accler = 40.0
+chain_shake_frequency = 5.0
 
 [node name="speed_display" type="AnimationPlayer" parent="." unique_id=1168429414]
 unique_name_in_owner = true
