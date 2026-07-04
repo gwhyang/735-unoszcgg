@@ -1,11 +1,35 @@
 [gd_scene format=3 uid="uid://cjkwubpn4o551"]
 
 [ext_resource type="Script" uid="uid://rqta38tbd4eo" path="res://addons/soundmanager/Global/sound_manger.gd" id="1_j3ix2"]
+[ext_resource type="AudioStream" uid="uid://f0myyeb65cq5" path="res://asset/sfx/click (1).wav" id="2_f4k2v"]
+[ext_resource type="AudioStream" uid="uid://bt3rl8hh7rqtf" path="res://asset/sfx/explosion (1).wav" id="2_qelx5"]
+[ext_resource type="AudioStream" uid="uid://1iaxoqh61yxp" path="res://asset/sfx/explosion (2).wav" id="3_f4k2v"]
+[ext_resource type="AudioStream" uid="uid://bt3vcsqopgo65" path="res://asset/sfx/explosion.wav" id="4_myd8m"]
+[ext_resource type="AudioStream" uid="uid://niks82pjh8fa" path="res://asset/sfx/powerUp (1).wav" id="5_dsen0"]
+[ext_resource type="AudioStream" uid="uid://bh42cf0n87w6n" path="res://asset/sfx/powerUp (2).wav" id="7_myd8m"]
 
 [node name="SoundManager" type="Node" unique_id=706504156]
 process_mode = 3
 script = ExtResource("1_j3ix2")
 
 [node name="SFX" type="Node" parent="." unique_id=1588597225]
+
+[node name="click" type="AudioStreamPlayer" parent="SFX" unique_id=946401281]
+stream = ExtResource("2_f4k2v")
+
+[node name="die" type="AudioStreamPlayer" parent="SFX" unique_id=1892778682]
+stream = ExtResource("2_qelx5")
+
+[node name="hurt" type="AudioStreamPlayer" parent="SFX" unique_id=832362625]
+stream = ExtResource("3_f4k2v")
+
+[node name="kill" type="AudioStreamPlayer" parent="SFX" unique_id=2034059691]
+stream = ExtResource("4_myd8m")
+
+[node name="fast" type="AudioStreamPlayer" parent="SFX" unique_id=239980271]
+stream = ExtResource("5_dsen0")
+
+[node name="heal" type="AudioStreamPlayer" parent="SFX" unique_id=1862346776]
+stream = ExtResource("7_myd8m")
 
 [node name="Music" type="Node" parent="." unique_id=877576683]

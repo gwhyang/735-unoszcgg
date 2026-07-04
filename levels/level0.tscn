@@ -2,12 +2,177 @@
 
 [ext_resource type="Script" uid="uid://cj2n8xsryrfdj" path="res://levels/main.gd" id="1_p8yh6"]
 [ext_resource type="Texture2D" uid="uid://en5r62y0r143" path="res://asset/roguelikeSheet_transparent.png" id="2_w2q2b"]
+[ext_resource type="PackedScene" uid="uid://0i5ea1aeq3dc" path="res://scenes/enemys/enemy.tscn" id="3_f3act"]
 [ext_resource type="PackedScene" uid="uid://br54fy6kmtwhu" path="res://scenes/player.tscn" id="3_f811g"]
 [ext_resource type="Script" uid="uid://cwyfm1n5mpdfy" path="res://class/camera_carriar.gd" id="4_f3act"]
 [ext_resource type="Script" uid="uid://chog1x1ci2kam" path="res://scenes/camera.gd" id="5_cxy21"]
+[ext_resource type="Script" uid="uid://pinu0rh8y5fq" path="res://scenes/trail.gd" id="5_v3eec"]
 [ext_resource type="Texture2D" uid="uid://37gw830scn73" path="res://icon.svg" id="6_v3eec"]
 [ext_resource type="Script" uid="uid://dnnoebmtjxpiv" path="res://class/hpbar.gd" id="7_1jtsu"]
+[ext_resource type="Shader" uid="uid://dxrgslbmxqc4c" path="res://asset/shaders/glass.gdshader" id="8_f3act"]
 [ext_resource type="PackedScene" uid="uid://mvl7ilbpl71w" path="res://ui/hp.tscn" id="8_qlvc7"]
+[ext_resource type="Shader" uid="uid://c0urnqv114wok" path="res://asset/shaders/danger.gdshader" id="9_cxy21"]
+[ext_resource type="Script" uid="uid://cwfbeners1h5r" path="res://scenes/minimap.gd" id="9_w2q2b"]
+
+[sub_resource type="Animation" id="Animation_qlvc7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GameUI/glasses:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.06666667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GameUI/margin:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ship/trail2/Line2D:gradient:offsets")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedFloat32Array(0, 0.22850123, 0.41769043, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ship/trail2/Line2D:gradient:colors")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedColorArray(0, 0, 0, 0, 0.8117647, 0.7490196, 0.64705884, 0.07450981, 0.8117647, 0.7490196, 0.64705884, 0.7372549, 0.4509804, 0.8117647, 0.79607844, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_v3eec"]
+resource_name = "fast"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GameUI/glasses:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GameUI/margin:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ship/trail2/Line2D:gradient:offsets")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedFloat32Array(0, 0.23832923, 0.7002457, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ship/trail2/Line2D:gradient:colors")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedColorArray(0, 0, 0, 0, 0.38, 0.35086668, 0.304, 0.07450981, 0.62, 0.5724667, 0.49600002, 0.7372549, 0.55, 0.22825003, 0.1925, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_1jtsu"]
+resource_name = "slow"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GameUI/glasses:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GameUI/margin:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ship/trail2/Line2D:gradient:offsets")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedFloat32Array(0, 0.22850123, 0.41769043, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ship/trail2/Line2D:gradient:colors")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedColorArray(0, 0, 0, 0, 0.8117647, 0.7490196, 0.64705884, 0.07450981, 0.8117647, 0.7490196, 0.64705884, 0.7372549, 0.4509804, 0.8117647, 0.79607844, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qlvc7"]
+_data = {
+&"RESET": SubResource("Animation_qlvc7"),
+&"fast": SubResource("Animation_v3eec"),
+&"slow": SubResource("Animation_1jtsu")
+}
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_p8yh6"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -1938,7 +2103,46 @@ physics_layer_0/collision_mask = 0
 navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_kek77")
 
+[sub_resource type="Curve" id="Curve_lquwl"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 0.62876254), -0.16595943, -0.16595943, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_7mycd"]
+offsets = PackedFloat32Array(0, 0.22850123, 0.41769043, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0.8117647, 0.7490196, 0.64705884, 0.07450981, 0.8117647, 0.7490196, 0.64705884, 0.7372549, 0.4509804, 0.8117647, 0.79607844, 1)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yf5fn"]
+shader = ExtResource("8_f3act")
+shader_parameter/fall_progress = 0.0
+shader_parameter/pieces_x = 5
+shader_parameter/pieces_y = 3
+shader_parameter/gravity = 2.2
+shader_parameter/scatter = 0.22
+shader_parameter/rotation_amount = 1.0
+shader_parameter/point_jitter = 0.34
+shader_parameter/delay_variation = 0.28
+shader_parameter/edge_thickness = 0.01
+shader_parameter/edge_brightness = 0.35
+shader_parameter/alpha_fade = 1.0
+
+[sub_resource type="Gradient" id="Gradient_cxy21"]
+offsets = PackedFloat32Array(0.7990315, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_g4v7s"]
+gradient = SubResource("Gradient_cxy21")
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g4v7s"]
+shader = ExtResource("9_cxy21")
+shader_parameter/flash_color = Color(0.8691248, 0.9570896, 0.3099165, 1)
+shader_parameter/intensity = 0.42000001995
+shader_parameter/edge_power = 2.5
+shader_parameter/inner_ratio = 0.75
+shader_parameter/feather = 0.4
 
 [sub_resource type="Animation" id="Animation_4c57u"]
 length = 0.001
@@ -2032,6 +2236,10 @@ _data = {
 script = ExtResource("1_p8yh6")
 high_speed = 800.0
 
+[node name="speed_display" type="AnimationPlayer" parent="." unique_id=1168429414]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_qlvc7")
+
 [node name="map" type="Node2D" parent="." unique_id=350973631]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="map" unique_id=730562515]
@@ -2040,9 +2248,26 @@ tile_set = SubResource("TileSet_g4v7s")
 
 [node name="SummonPoints" type="Node2D" parent="." unique_id=1564863899]
 
-[node name="ship" parent="." unique_id=1596945220 instance=ExtResource("3_f811g")]
+[node name="enemy" parent="SummonPoints" unique_id=1208423677 instance=ExtResource("3_f3act")]
+position = Vector2(574, 1131)
+
+[node name="enemy2" parent="SummonPoints" unique_id=137789643 instance=ExtResource("3_f3act")]
+position = Vector2(1666, 287)
+
+[node name="ship" parent="." unique_id=1596945220 groups=["player"] instance=ExtResource("3_f811g")]
 unique_name_in_owner = true
 position = Vector2(143, 117)
+
+[node name="trail2" type="Node" parent="ship" unique_id=878088483]
+
+[node name="Line2D" type="Line2D" parent="ship/trail2" unique_id=902620161]
+width = 27.0
+width_curve = SubResource("Curve_lquwl")
+gradient = SubResource("Gradient_7mycd")
+joint_mode = 2
+round_precision = 16
+script = ExtResource("5_v3eec")
+max_point_count = 25
 
 [node name="camera carrier" type="Node2D" parent="." unique_id=1577102979 node_paths=PackedStringArray("followed")]
 position = Vector2(143.00002, 117.00001)
@@ -2055,6 +2280,7 @@ follow_damp = 1.765
 [node name="Camera2D" type="Camera2D" parent="camera carrier" unique_id=1992539139]
 position = Vector2(8.999984, 5.999992)
 script = ExtResource("5_cxy21")
+zoom_speed = 0.4
 metadata/_custom_type_script = "uid://dhjww4ioqn212"
 
 [node name="ColorRect" type="ColorRect" parent="camera carrier" unique_id=1748382319]
@@ -2088,6 +2314,25 @@ shape = SubResource("CircleShape2D_g4v7s")
 
 [node name="GameUI" type="CanvasLayer" parent="." unique_id=621873269]
 
+[node name="glasses" type="TextureRect" parent="GameUI" unique_id=1023403585]
+visible = false
+material = SubResource("ShaderMaterial_yf5fn")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_g4v7s")
+
+[node name="margin" type="ColorRect" parent="GameUI" unique_id=1967120874]
+visible = false
+material = SubResource("ShaderMaterial_g4v7s")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="HpContainer" type="HBoxContainer" parent="GameUI" unique_id=1718127027]
 unique_name_in_owner = true
 offset_right = 392.0
@@ -2104,18 +2349,29 @@ layout_mode = 2
 [node name="Hp" parent="GameUI/HpContainer" unique_id=429378753 instance=ExtResource("8_qlvc7")]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="GameUI" unique_id=1263881655]
+[node name="VBoxContainer" type="VBoxContainer" parent="GameUI" unique_id=1611374578]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -47.0
-offset_bottom = 40.0
+offset_left = -70.0
+offset_bottom = 97.0
 grow_horizontal = 0
 
-[node name="TextureRect" type="TextureRect" parent="GameUI/HBoxContainer" unique_id=671494333]
+[node name="Minimap" type="Control" parent="GameUI/VBoxContainer" unique_id=314371579]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+script = ExtResource("9_w2q2b")
+show_radius = 2200.0
+point_radius = 1.5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GameUI/VBoxContainer" unique_id=1263881655]
+custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
 
-[node name="kill_count_label" type="Label" parent="GameUI/HBoxContainer" unique_id=1528122889]
+[node name="TextureRect" type="TextureRect" parent="GameUI/VBoxContainer/HBoxContainer" unique_id=671494333]
+layout_mode = 2
+
+[node name="kill_count_label" type="Label" parent="GameUI/VBoxContainer/HBoxContainer" unique_id=1528122889]
 unique_name_in_owner = true
 layout_mode = 2
 text = "10/10"
@@ -2170,12 +2426,14 @@ text = "设置"
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_ycdy4")
 
+[connection signal="fast" from="ship" to="." method="_on_ship_fast"]
 [connection signal="fast" from="ship" to="camera carrier/Camera2D" method="_on_ship_fast"]
 [connection signal="hit_ship" from="ship" to="." method="_on_ship_hit_ship"]
 [connection signal="hit_ship" from="ship" to="camera carrier/Camera2D" method="_on_ship_hit_ship"]
 [connection signal="hp_changed" from="ship" to="." method="_on_ship_hp_changed"]
 [connection signal="hp_changed" from="ship" to="GameUI/HpContainer" method="set_hp"]
 [connection signal="ship_hurt" from="ship" to="camera carrier/Camera2D" method="_on_ship_ship_hurt"]
+[connection signal="slow" from="ship" to="." method="_on_ship_slow"]
 [connection signal="slow" from="ship" to="camera carrier/Camera2D" method="_on_ship_slow"]
 [connection signal="pressed" from="GameUI/finui/VBoxContainer/restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="GameUI/finui/VBoxContainer/menu" to="." method="_on_menu_pressed"]

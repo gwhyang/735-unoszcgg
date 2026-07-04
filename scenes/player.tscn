@@ -1,15 +1,7 @@
 [gd_scene format=3 uid="uid://br54fy6kmtwhu"]
 
 [ext_resource type="Script" uid="uid://cefdh74h86re" path="res://scenes/player.gd" id="1_v4325"]
-[ext_resource type="Script" uid="uid://pinu0rh8y5fq" path="res://scenes/trail.gd" id="2_c3vuw"]
 [ext_resource type="Texture2D" uid="uid://37gw830scn73" path="res://icon.svg" id="3_78o8j"]
-
-[sub_resource type="Curve" id="Curve_lquwl"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.87666667, 0.5935829), -0.16595943, -0.16595943, 0, 0, Vector2(0.97333336, 0.36898404), -2.7072208, -2.7072208, 0, 0, Vector2(1, 0), -2.6737964, 0.0, 0, 0]
-point_count = 4
-
-[sub_resource type="Gradient" id="Gradient_7mycd"]
-colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
 
@@ -21,15 +13,6 @@ collision_layer = 2
 collision_mask = 8
 motion_mode = 1
 script = ExtResource("1_v4325")
-
-[node name="trail" type="Node" parent="." unique_id=1183586022]
-
-[node name="Line2D" type="Line2D" parent="trail" unique_id=1041729026]
-width = 27.0
-width_curve = SubResource("Curve_lquwl")
-gradient = SubResource("Gradient_7mycd")
-script = ExtResource("2_c3vuw")
-max_point_count = 25
 
 [node name="shiptexture" type="Sprite2D" parent="." unique_id=79890555]
 scale = Vector2(0.16, 0.16)

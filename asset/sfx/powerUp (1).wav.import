@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://niks82pjh8fa"
+path="res://.godot/imported/powerUp (1).wav-18d3b830e3c7bf9ad36877b6e88b8d42.sample"
+
+[deps]
+
+source_file="res://asset/sfx/powerUp (1).wav"
+dest_files=["res://.godot/imported/powerUp (1).wav-18d3b830e3c7bf9ad36877b6e88b8d42.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

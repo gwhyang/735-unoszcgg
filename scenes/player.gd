@@ -82,11 +82,13 @@ func hit(area: Area2D):
 	print("hit ship")
 	hit_ship.emit()
 	EventBus.hit_area(area)
+	SoundManager.sfx_play("kill")
 	pass
 	
 func hurt():
 	hp-=1
 	game.set_anchor(false)
+	SoundManager.sfx_play("hurt")
 	pass
 
 	
@@ -100,4 +102,5 @@ func _on_hithurt_area_entered(area: Area2D) -> void:
 
 func _on_bonus_area_entered(area: Area2D) -> void:
 	hp+=1
+	SoundManager.sfx_play("heal")
 	hit(area)

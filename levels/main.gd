@@ -17,6 +17,10 @@ enum {DRIFT,SHOOT,TOWRAD}
 @onready var hp_container: HPContainer = %HpContainer
 @onready var kill_count_label: Label = %kill_count_label
 @onready var finui_player: AnimationPlayer = %FinuiPlayer
+@onready var speed_display: AnimationPlayer = %speed_display
+
+@onready var glasses: TextureRect = $GameUI/glasses
+@onready var margin: ColorRect = $GameUI/margin
 
 var target:Vector2
 var vel:Vector2
@@ -33,6 +37,7 @@ const MENU:String = "uid://cx1yr4eluys35"
 
 
 func _ready() -> void:
+	get_tree().root.set_canvas_cull_mask_bit(1,false)
 	set_player(ship)
 	hp_container.set_hp(max_hp)
 	current_count = target_kill_count
@@ -44,6 +49,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("fire_anchor"):
 		target = get_global_mouse_position()
 		set_anchor(true)
+		SoundManager.sfx_play("click")
 		if true:
 			anchor.global_position = target
 			iradius = (target-ship.global_position).length()
@@ -81,6 +87,7 @@ func win():
 func lose():
 	finui_player.play("lose")
 	enable_input = false
+	SoundManager.sfx_play("die")
 	pass
 
 func _on_ship_hit_ship() -> void:
@@ -106,4 +113,14 @@ func _on_menu_pressed() -> void:
 
 
 func _on_setting_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_ship_fast() -> void:
+	speed_display.play("fast")
+	pass # Replace with function body.
+
+
+func _on_ship_slow() -> void:
+	speed_display.play("slow")
 	pass # Replace with function body.
