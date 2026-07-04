@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://c5a3s5qkts5qy"]
+
+[ext_resource type="PackedScene" uid="uid://pa5r0vl1dck8" path="res://class/summon_point.tscn" id="1_ji4k6"]
+[ext_resource type="Script" uid="uid://4r4rajyl451o" path="res://scenes/enemy_summon_point.gd" id="2_t576a"]
+
+[node name="EnemySummonPoint" unique_id=1694849913 instance=ExtResource("1_ji4k6")]
+script = ExtResource("2_t576a")
+summon_interval = null
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." index="0" unique_id=1853503124]
+rect = Rect2(-25, -25, 50, 50)

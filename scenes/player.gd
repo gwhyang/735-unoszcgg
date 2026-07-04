@@ -3,6 +3,9 @@ class_name Player
 
 signal hp_changed(new_hp:int)
 signal hit_ship
+signal ship_hurt
+signal fast
+signal slow
 
 @onready var game: Node2D = $".."
 @onready var anchor: Area2D = %anchor
@@ -32,6 +35,15 @@ var vel:Vector2
 var iradius:float
 var iangular_speed:float
 var ideal_angular_speed:float = 1.6
+var is_fast:bool:
+	set(v):
+		if v==  is_fast:
+			return
+		is_fast = v
+		if is_fast:
+			fast.emit()
+		else:
+			slow.emit()
 
 func _ready() -> void:
 	EventBus.heal.connect(
@@ -40,7 +52,8 @@ func _ready() -> void:
 			)
 
 func _physics_process(delta: float) -> void:
-	process_move(delta)
+	if hp>0:
+		process_move(delta)
 	var collision:= move_and_collide(delta*vel)
 	if collision:
 		var speed_after_loss := vel.length() * (1.0 - collision_speed_loss)
@@ -62,6 +75,7 @@ func process_move(delta:float):
 		#var dv=(0.6*abs(sin(dir.angle_to(vel))))*dir.normalized()*iradius*iangular_speed*iangular_speed #2试着按·默认圆周运动，并且使得趋向于之
 		#dv = dv.normalized()*max(dv.length(),min_accler)
 		#vel+= dv
+	is_fast = vel.length()>high_speed
 
 func hit(area: Area2D):
 	print("hit ship")

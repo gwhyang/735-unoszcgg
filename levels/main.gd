@@ -1,5 +1,7 @@
 extends Node2D
 enum {DRIFT,SHOOT,TOWRAD}
+@export_group("level_setting")
+@export var target_kill_count:int = 10
 @export_group("game message")
 @export var high_speed:float = 2300
 @export var max_hp:int =3
@@ -12,20 +14,32 @@ enum {DRIFT,SHOOT,TOWRAD}
 
 @onready var ship: Player = %ship
 @onready var anchor: Area2D = %anchor
-@onready var hp_container: HPContainer = %HBoxContainer
+@onready var hp_container: HPContainer = %HpContainer
+@onready var kill_count_label: Label = %kill_count_label
+@onready var finui_player: AnimationPlayer = %FinuiPlayer
 
 var target:Vector2
 var vel:Vector2
 
 var iradius:float
 var iangular_speed:float
+var current_count:int =0:
+	set(v):
+		current_count = v
+		kill_count_label.text = str(current_count)+"/"+str(target_kill_count)
+var enable_input = true
+
+#TODO game loop
 
 func _ready() -> void:
 	set_player(ship)
 	hp_container.set_hp(max_hp)
+	current_count = target_kill_count
 	
 
 func _physics_process(delta: float) -> void:
+	if not enable_input:
+		return
 	if Input.is_action_just_pressed("fire_anchor"):
 		target = get_global_mouse_position()
 		set_anchor(true)
@@ -60,15 +74,21 @@ func set_player(player:Player):
 	ship.max_hp = max_hp
 	ship.hp = max_hp
 	
-
-func hit():
+func win():
+	finui_player.play("lose")
+	enable_input = false
+func lose():
+	finui_player.play("lose")
+	enable_input = false
 	pass
-	
-func hurt():
-	pass
 
-func _on_hithurt_area_entered(area: Area2D) -> void:
-	if vel.length() > high_speed:
-		hit()
-	else:
-		hurt()
+func _on_ship_hit_ship() -> void:
+	current_count -= 1
+	if current_count<=0:
+		win()
+
+
+func _on_ship_hp_changed(new_hp: int) -> void:
+	if new_hp == 0:
+		lose()
+	pass # Replace with function body.
