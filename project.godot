@@ -21,10 +21,11 @@ EventBus="*uid://cmv72qrhdqqbi"
 
 [display]
 
-window/size/viewport_width=960
-window/size/viewport_height=720
-window/stretch/mode="canvas_items"
+window/size/viewport_width=480
+window/size/viewport_height=270
+window/stretch/mode="viewport"
 window/stretch/aspect="expand"
+window/stretch/scale_mode="integer"
 
 [input]
 
@@ -44,8 +45,10 @@ restart={
 2d_physics/layer_2="player"
 2d_physics/layer_3="enemy"
 2d_physics/layer_4="land"
+2d_physics/layer_5="bonus"
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"

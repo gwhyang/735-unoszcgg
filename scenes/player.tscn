@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://br54fy6kmtwhu"]
 
-[ext_resource type="Script" uid="uid://cefdh74h86re" path="res://player.gd" id="1_v4325"]
-[ext_resource type="Script" uid="uid://pinu0rh8y5fq" path="res://trail.gd" id="2_c3vuw"]
+[ext_resource type="Script" uid="uid://cefdh74h86re" path="res://scenes/player.gd" id="1_v4325"]
+[ext_resource type="Script" uid="uid://pinu0rh8y5fq" path="res://scenes/trail.gd" id="2_c3vuw"]
 [ext_resource type="Texture2D" uid="uid://37gw830scn73" path="res://icon.svg" id="3_78o8j"]
 
 [sub_resource type="Curve" id="Curve_lquwl"]
@@ -19,13 +19,14 @@ radius = 14.04
 [node name="ship" type="CharacterBody2D" unique_id=337205327]
 collision_layer = 0
 collision_mask = 8
+motion_mode = 1
 script = ExtResource("1_v4325")
 
 [node name="trail" type="Node" parent="." unique_id=1183586022]
 
 [node name="Line2D" type="Line2D" parent="trail" unique_id=1041729026]
 points = PackedVector2Array(281, 21, 116, 88, -13, 100)
-width = 95.655
+width = 40.0
 width_curve = SubResource("Curve_lquwl")
 gradient = SubResource("Gradient_7mycd")
 script = ExtResource("2_c3vuw")
@@ -46,4 +47,13 @@ collision_mask = 4
 shape = SubResource("CircleShape2D_yf5fn")
 debug_color = Color(0.7702828, 0.29639828, 0.8309733, 0.41960785)
 
+[node name="bonus" type="Area2D" parent="." unique_id=1328782408]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bonus" unique_id=1998079020]
+shape = SubResource("CircleShape2D_yf5fn")
+debug_color = Color(0.7702828, 0.29639828, 0.8309733, 0.41960785)
+
 [connection signal="area_entered" from="hit&hurt" to="." method="_on_hithurt_area_entered"]
+[connection signal="area_entered" from="bonus" to="." method="_on_bonus_area_entered"]

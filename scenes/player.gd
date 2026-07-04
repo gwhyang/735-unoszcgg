@@ -14,13 +14,30 @@ var raise_distance:float = 30
 var collision_speed_loss:float = 0.84
 var collision_max_speed:float = 240
 var max_hp:int = 3
-var hp:int = 3
+var hp:int = 3:
+	set(v):
+		if v == hp:return
+		if v<0:
+			v = 0
+		if v>max_hp:
+			v = max_hp
+		if v == hp:
+			return
+		hp = v
+		hp_changed.emit(hp)
+			
 
 var vel:Vector2
 
 var iradius:float
 var iangular_speed:float
 var ideal_angular_speed:float = 1.6
+
+func _ready() -> void:
+	EventBus.heal.connect(
+		func(v:int):
+			hp+=v
+			)
 
 func _physics_process(delta: float) -> void:
 	process_move(delta)
@@ -54,13 +71,18 @@ func hit(area: Area2D):
 	
 func hurt():
 	hp-=1
-	hp_changed.emit(hp)
 	game.set_anchor(false)
-	print("hurt")
 	pass
+
+	
 
 func _on_hithurt_area_entered(area: Area2D) -> void:
 	if vel.length() > high_speed:
 		hit(area)
 	else:
 		hurt()
+
+
+func _on_bonus_area_entered(area: Area2D) -> void:
+	hp+=1
+	hit(area)

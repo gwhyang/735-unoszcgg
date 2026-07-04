@@ -2,9 +2,10 @@
 
 [ext_resource type="Script" uid="uid://cj2n8xsryrfdj" path="res://main.gd" id="1_h2yge"]
 [ext_resource type="Texture2D" uid="uid://37gw830scn73" path="res://icon.svg" id="1_ig7tw"]
-[ext_resource type="PackedScene" uid="uid://br54fy6kmtwhu" path="res://player.tscn" id="2_h2yge"]
-[ext_resource type="PackedScene" uid="uid://0i5ea1aeq3dc" path="res://enemy.tscn" id="4_1bvp3"]
-[ext_resource type="Script" uid="uid://dnnoebmtjxpiv" path="res://hpbar.gd" id="5_7mycd"]
+[ext_resource type="PackedScene" uid="uid://br54fy6kmtwhu" path="res://scenes/player.tscn" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://dyedkyxaeftvf" path="res://scenes/bonus.tscn" id="3_272bh"]
+[ext_resource type="PackedScene" uid="uid://0i5ea1aeq3dc" path="res://scenes/enemy.tscn" id="4_1bvp3"]
+[ext_resource type="Script" uid="uid://dnnoebmtjxpiv" path="res://class/hpbar.gd" id="5_7mycd"]
 [ext_resource type="PackedScene" uid="uid://mvl7ilbpl71w" path="res://ui/hp.tscn" id="6_272bh"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1bvp3"]
@@ -57,8 +58,13 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="playground/Area2D4" unique_id=623114211]
 shape = SubResource("WorldBoundaryShape2D_g4v7s")
 
-[node name="enemy" parent="." unique_id=345184715 instance=ExtResource("4_1bvp3")]
-position = Vector2(105, 50)
+[node name="Node2D" type="Node2D" parent="." unique_id=1564863899]
+
+[node name="enemy" parent="Node2D" unique_id=345184715 instance=ExtResource("4_1bvp3")]
+position = Vector2(133, 37)
+
+[node name="bonus" parent="Node2D" unique_id=1208423677 instance=ExtResource("3_272bh")]
+position = Vector2(350, 101)
 
 [node name="ship" parent="." unique_id=1596945220 instance=ExtResource("2_h2yge")]
 unique_name_in_owner = true

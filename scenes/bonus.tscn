@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dyedkyxaeftvf"]
+
+[ext_resource type="PackedScene" uid="uid://0i5ea1aeq3dc" path="res://scenes/enemy.tscn" id="1_3no7k"]
+
+[node name="bonus" unique_id=1208423677 instance=ExtResource("1_3no7k")]
+collision_layer = 16
+
+[node name="Sprite" parent="." index="0" unique_id=1268263205]
+modulate = Color(0.38517466, 0.67057884, 0.34749743, 1)
+
+[node name="hurtbox" parent="." index="2" unique_id=503933743]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" parent="hurtbox" index="0" unique_id=826440109]
+debug_color = Color(1.6364455e-06, 0.64503556, 0.24743739, 0.41960785)

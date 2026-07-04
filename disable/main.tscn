@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://main001"]
 
 [ext_resource type="Script" uid="uid://csk6ehdcm8gg1" path="res://disable/main.gd" id="1_main"]
-[ext_resource type="PackedScene" uid="uid://ship001" path="res://scenes/ship.tscn" id="2_ship"]
+[ext_resource type="PackedScene" uid="uid://ship001" path="res://disable/ship.tscn" id="2_ship"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape_wall_h"]
 size = Vector2(900, 24)
@@ -12,24 +12,24 @@ size = Vector2(24, 660)
 [sub_resource type="RectangleShape2D" id="RectangleShape_island"]
 size = Vector2(140, 100)
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" unique_id=1158417451]
 script = ExtResource("1_main")
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="." unique_id=1617829055]
 offset_right = 960.0
 offset_bottom = 720.0
 mouse_filter = 2
 color = Color(0.06, 0.22, 0.38, 1)
 
-[node name="Arena" type="Node2D" parent="."]
+[node name="Arena" type="Node2D" parent="." unique_id=1238557214]
 
-[node name="TopWall" type="StaticBody2D" parent="Arena"]
+[node name="TopWall" type="StaticBody2D" parent="Arena" unique_id=1357883364]
 position = Vector2(480, 40)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Arena/TopWall"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arena/TopWall" unique_id=1700847188]
 shape = SubResource("RectangleShape_wall_h")
 
-[node name="Visual" type="ColorRect" parent="Arena/TopWall"]
+[node name="Visual" type="ColorRect" parent="Arena/TopWall" unique_id=1321612247]
 offset_left = -450.0
 offset_top = -12.0
 offset_right = 450.0
@@ -37,13 +37,13 @@ offset_bottom = 12.0
 mouse_filter = 2
 color = Color(0.16, 0.3, 0.22, 1)
 
-[node name="BottomWall" type="StaticBody2D" parent="Arena"]
+[node name="BottomWall" type="StaticBody2D" parent="Arena" unique_id=1501172014]
 position = Vector2(480, 680)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Arena/BottomWall"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arena/BottomWall" unique_id=1290176164]
 shape = SubResource("RectangleShape_wall_h")
 
-[node name="Visual" type="ColorRect" parent="Arena/BottomWall"]
+[node name="Visual" type="ColorRect" parent="Arena/BottomWall" unique_id=617995579]
 offset_left = -450.0
 offset_top = -12.0
 offset_right = 450.0
@@ -51,13 +51,13 @@ offset_bottom = 12.0
 mouse_filter = 2
 color = Color(0.16, 0.3, 0.22, 1)
 
-[node name="LeftWall" type="StaticBody2D" parent="Arena"]
+[node name="LeftWall" type="StaticBody2D" parent="Arena" unique_id=1205913653]
 position = Vector2(40, 360)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Arena/LeftWall"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arena/LeftWall" unique_id=658389387]
 shape = SubResource("RectangleShape_wall_v")
 
-[node name="Visual" type="ColorRect" parent="Arena/LeftWall"]
+[node name="Visual" type="ColorRect" parent="Arena/LeftWall" unique_id=1582607226]
 offset_left = -12.0
 offset_top = -330.0
 offset_right = 12.0
@@ -65,13 +65,13 @@ offset_bottom = 330.0
 mouse_filter = 2
 color = Color(0.16, 0.3, 0.22, 1)
 
-[node name="RightWall" type="StaticBody2D" parent="Arena"]
+[node name="RightWall" type="StaticBody2D" parent="Arena" unique_id=1518655469]
 position = Vector2(920, 360)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Arena/RightWall"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arena/RightWall" unique_id=453444857]
 shape = SubResource("RectangleShape_wall_v")
 
-[node name="Visual" type="ColorRect" parent="Arena/RightWall"]
+[node name="Visual" type="ColorRect" parent="Arena/RightWall" unique_id=1979488220]
 offset_left = -12.0
 offset_top = -330.0
 offset_right = 12.0
@@ -79,13 +79,13 @@ offset_bottom = 330.0
 mouse_filter = 2
 color = Color(0.16, 0.3, 0.22, 1)
 
-[node name="IslandA" type="StaticBody2D" parent="Arena"]
+[node name="IslandA" type="StaticBody2D" parent="Arena" unique_id=413749851]
 position = Vector2(320, 280)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Arena/IslandA"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arena/IslandA" unique_id=2039581828]
 shape = SubResource("RectangleShape_island")
 
-[node name="Visual" type="ColorRect" parent="Arena/IslandA"]
+[node name="Visual" type="ColorRect" parent="Arena/IslandA" unique_id=1924248084]
 offset_left = -70.0
 offset_top = -50.0
 offset_right = 70.0
@@ -93,13 +93,13 @@ offset_bottom = 50.0
 mouse_filter = 2
 color = Color(0.2, 0.36, 0.26, 1)
 
-[node name="IslandB" type="StaticBody2D" parent="Arena"]
+[node name="IslandB" type="StaticBody2D" parent="Arena" unique_id=203990410]
 position = Vector2(640, 480)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Arena/IslandB"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arena/IslandB" unique_id=1537174937]
 shape = SubResource("RectangleShape_island")
 
-[node name="Visual" type="ColorRect" parent="Arena/IslandB"]
+[node name="Visual" type="ColorRect" parent="Arena/IslandB" unique_id=1018225459]
 offset_left = -70.0
 offset_top = -50.0
 offset_right = 70.0
@@ -107,19 +107,18 @@ offset_bottom = 50.0
 mouse_filter = 2
 color = Color(0.2, 0.36, 0.26, 1)
 
-[node name="Ship" parent="." instance=ExtResource("2_ship")]
+[node name="Ship" parent="." unique_id=1668328018 instance=ExtResource("2_ship")]
 position = Vector2(480, 360)
 
-[node name="Anchors" type="Node2D" parent="."]
+[node name="Anchors" type="Node2D" parent="." unique_id=1102590257]
 
-[node name="UI" type="CanvasLayer" parent="."]
+[node name="UI" type="CanvasLayer" parent="." unique_id=414620091]
 
-[node name="Hint" type="Label" parent="UI"]
+[node name="Hint" type="Label" parent="UI" unique_id=1356080195]
 offset_left = 16.0
 offset_top = 16.0
 offset_right = 520.0
 offset_bottom = 64.0
-mouse_filter = 2
 theme_override_colors/font_color = Color(0.92, 0.94, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5)
 theme_override_constants/shadow_offset_x = 1
@@ -127,7 +126,7 @@ theme_override_constants/shadow_offset_y = 1
 text = "鼠标左键向海水抛出船锚（不挂墙壁）
 锚在水中定住后，沿绳索被拉过去 | 撞岸失去生命"
 
-[node name="HUD" type="Control" parent="UI"]
+[node name="HUD" type="Control" parent="UI" unique_id=1577564091]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -136,7 +135,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="LivesLabel" type="Label" parent="UI/HUD"]
+[node name="LivesLabel" type="Label" parent="UI/HUD" unique_id=1720448544]
 layout_mode = 0
 offset_left = 760.0
 offset_top = 16.0
@@ -149,7 +148,7 @@ theme_override_constants/shadow_offset_y = 1
 text = "生命: 3 / 3"
 horizontal_alignment = 2
 
-[node name="GameOverPanel" type="PanelContainer" parent="UI"]
+[node name="GameOverPanel" type="PanelContainer" parent="UI" unique_id=2146434762]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -161,7 +160,7 @@ offset_top = -60.0
 offset_right = 180.0
 offset_bottom = 60.0
 
-[node name="GameOverLabel" type="Label" parent="UI/GameOverPanel"]
+[node name="GameOverLabel" type="Label" parent="UI/GameOverPanel" unique_id=1257244483]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.95, 0.96, 1, 1)
 text = "船只损毁！按 R 重新开始"
