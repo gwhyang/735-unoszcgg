@@ -54,10 +54,10 @@ var chain_drawer:ChainDrawer
 var current_count:int =0:
 	set(v):
 		current_count = v
-		kill_count_label.text = str(current_count)+"/"+str(target_kill_count)
+		kill_count_label.text = "击杀： "+str(current_count)+"/"+str(target_kill_count)
 var enable_input = true
 
-const MENU:String = "uid://cx1yr4eluys35"
+const MENU:String = "res://ui/menu_1.tscn"
 
 
 func _ready() -> void:

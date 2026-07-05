@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://b64mebfd2dima"]
+
+[ext_resource type="PackedScene" uid="uid://cx1yr4eluys35" path="res://ui/menu.tscn" id="1_m3ksy"]
+
+[node name="Menu1" unique_id=201119109 instance=ExtResource("1_m3ksy")]
+
+[node name="AnimationPlayer" parent="." index="2" unique_id=425705894]
+autoplay = &"levels"
