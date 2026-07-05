@@ -7,9 +7,12 @@ signal ship_hurt
 signal fast
 signal slow
 @export var fast_buffer:float = 0.2
+@export var invincible_time:float = 1.0
+@export var invincible_flash_interval:float = 0.08
 
 @onready var game: Node2D = $".."
 @onready var anchor: Area2D = %anchor
+@onready var shiptexture: Sprite2D = $shiptexture
 var high_speed:float = 2300
 var damp:float = 0.0
 var min_accler:float = 70
@@ -36,6 +39,9 @@ var vel:Vector2
 var iradius:float
 var iangular_speed:float
 var ideal_angular_speed:float = 1.6
+var invincible_timer:float = 0.0
+var flash_timer:float = 0.0
+var shiptexture_default_modulate:Color = Color.WHITE
 var is_fast:bool=false:
 	set(v):
 		if v==  is_fast:
@@ -49,6 +55,7 @@ var is_fast:bool=false:
 var fast_buffer_timer:float
 
 func _ready() -> void:
+	shiptexture_default_modulate = shiptexture.modulate
 	EventBus.heal.connect(
 		func(v:int):
 			hp+=v
@@ -56,6 +63,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	fast_buffer_timer -= delta
+	_process_invincible(delta)
 	if hp>0:
 		process_move(delta)
 	var collision:= move_and_collide(delta*vel)
@@ -91,10 +99,36 @@ func hit(area: Area2D):
 	pass
 	
 func hurt():
+	if invincible_timer > 0.0:
+		return
 	hp-=1
 	game.set_anchor(false)
+	ship_hurt.emit()
 	SoundManager.sfx_play("hurt")
+	_start_invincible()
 	pass
+
+func _start_invincible() -> void:
+	invincible_timer = invincible_time
+	flash_timer = 0.0
+	shiptexture.modulate = Color.WHITE
+
+func _process_invincible(delta:float) -> void:
+	if invincible_timer <= 0.0:
+		return
+
+	invincible_timer -= delta
+	flash_timer -= delta
+	if flash_timer <= 0.0:
+		flash_timer = invincible_flash_interval
+		if shiptexture.modulate == Color.WHITE:
+			shiptexture.modulate = shiptexture_default_modulate
+		else:
+			shiptexture.modulate = Color.WHITE
+
+	if invincible_timer <= 0.0:
+		invincible_timer = 0.0
+		shiptexture.modulate = shiptexture_default_modulate
 
 	
 
