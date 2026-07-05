@@ -25,8 +25,9 @@ func _on_ship_hit_ship() -> void:
 	#Engine.time_scale = 0.001
 	#await  get_tree().create_timer(0.05,true,false,true).timeout
 	#Engine.time_scale = 1
-	shake_tween = get_tree().create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_LINEAR)
-	shake_tween.tween_property(self,"shake_strength",0,hit_shake_time)
+	if get_tree():
+		shake_tween = get_tree().create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_LINEAR)
+		shake_tween.tween_property(self,"shake_strength",0,hit_shake_time)
 
 
 func _on_ship_ship_hurt() -> void:

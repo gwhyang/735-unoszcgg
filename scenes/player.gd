@@ -41,7 +41,7 @@ var iangular_speed:float
 var ideal_angular_speed:float = 1.6
 var invincible_timer:float = 0.0
 var flash_timer:float = 0.0
-var shiptexture_default_modulate:Color = Color.WHITE
+var flash_enabled:bool = false
 var is_fast:bool=false:
 	set(v):
 		if v==  is_fast:
@@ -55,7 +55,7 @@ var is_fast:bool=false:
 var fast_buffer_timer:float
 
 func _ready() -> void:
-	shiptexture_default_modulate = shiptexture.modulate
+	_set_flash_amount(0.0)
 	EventBus.heal.connect(
 		func(v:int):
 			hp+=v
@@ -111,7 +111,8 @@ func hurt():
 func _start_invincible() -> void:
 	invincible_timer = invincible_time
 	flash_timer = 0.0
-	shiptexture.modulate = Color.WHITE
+	flash_enabled = true
+	_set_flash_amount(1.0)
 
 func _process_invincible(delta:float) -> void:
 	if invincible_timer <= 0.0:
@@ -121,14 +122,19 @@ func _process_invincible(delta:float) -> void:
 	flash_timer -= delta
 	if flash_timer <= 0.0:
 		flash_timer = invincible_flash_interval
-		if shiptexture.modulate == Color.WHITE:
-			shiptexture.modulate = shiptexture_default_modulate
-		else:
-			shiptexture.modulate = Color.WHITE
+		flash_enabled = not flash_enabled
+		_set_flash_amount(1.0 if flash_enabled else 0.0)
 
 	if invincible_timer <= 0.0:
 		invincible_timer = 0.0
-		shiptexture.modulate = shiptexture_default_modulate
+		flash_enabled = false
+		_set_flash_amount(0.0)
+
+func _set_flash_amount(amount:float) -> void:
+	var shader_material:ShaderMaterial = shiptexture.material as ShaderMaterial
+	if shader_material == null:
+		return
+	shader_material.set_shader_parameter("flash_amount", amount)
 
 	
 

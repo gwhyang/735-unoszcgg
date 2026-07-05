@@ -2,11 +2,16 @@
 
 [ext_resource type="Script" uid="uid://cefdh74h86re" path="res://scenes/player.gd" id="1_v4325"]
 [ext_resource type="Texture2D" uid="uid://37gw830scn73" path="res://icon.svg" id="3_78o8j"]
+[ext_resource type="Shader" path="res://asset/shaders/player_flash.gdshader" id="3_yf5fn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yf5fn"]
 radius = 14.04
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yf5fn"]
+shader = ExtResource("3_yf5fn")
+shader_parameter/flash_amount = 0.0
 
 [node name="ship" type="CharacterBody2D" unique_id=337205327 groups=["enemy"]]
 collision_layer = 2
@@ -15,6 +20,7 @@ motion_mode = 1
 script = ExtResource("1_v4325")
 
 [node name="shiptexture" type="Sprite2D" parent="." unique_id=79890555]
+material = SubResource("ShaderMaterial_yf5fn")
 scale = Vector2(0.16, 0.16)
 texture = ExtResource("3_78o8j")
 
