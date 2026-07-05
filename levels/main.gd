@@ -182,8 +182,9 @@ func _update_speed_label() -> void:
 		speed_label.text = "[color=white]%s[/color]" % speed_text
 	
 func win():
-	finui_player.play("lose")
+	finui_player.play("win")
 	enable_input = false
+	await finui_player.animation_finished
 	get_tree().change_scene_to_file(MENU)
 	
 func lose():
