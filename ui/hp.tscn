@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://mvl7ilbpl71w"]
 
-[ext_resource type="Texture2D" uid="uid://37gw830scn73" path="res://icon.svg" id="1_fdjou"]
+[ext_resource type="Texture2D" uid="uid://bsa1mftaxypoi" path="res://asset/heart.png" id="1_fdjou"]
 
 [node name="Hp" type="TextureRect" unique_id=429378753]
+offset_right = 128.0
+offset_bottom = 128.0
 texture = ExtResource("1_fdjou")
