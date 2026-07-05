@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://cwfbeners1h5r" path="res://scenes/minimap.gd" id="9_w2q2b"]
 [ext_resource type="Shader" uid="uid://o2unoq2oak56" path="res://asset/shaders/dot_matrix_diagonal_eveal.gdshader" id="13_1jtsu"]
 [ext_resource type="Shader" uid="uid://dknmc2psifive" path="res://asset/shaders/win.gdshader" id="14_qlvc7"]
+[ext_resource type="Theme" uid="uid://c4if8ppgo1rbo" path="res://gametheme.tres" id="15_qlvc7"]
 
 [sub_resource type="Animation" id="Animation_qlvc7"]
 length = 0.001
@@ -663,26 +664,35 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("15_qlvc7")
 
 [node name="continue" type="Button" parent="GameUI/finui/VBoxContainer" unique_id=1536013094]
 custom_minimum_size = Vector2(50, 20)
 layout_mode = 2
+theme_override_colors/font_color = Color(0.039215688, 0.23137255, 0.36078432, 1)
+theme_override_font_sizes/font_size = 8
 text = "继续"
 
 [node name="restart" type="Button" parent="GameUI/finui/VBoxContainer" unique_id=525962513]
 custom_minimum_size = Vector2(50, 20)
 layout_mode = 2
+theme_override_colors/font_color = Color(0.039215688, 0.23137255, 0.36078432, 1)
+theme_override_font_sizes/font_size = 8
 text = "重新开始"
 
 [node name="menu" type="Button" parent="GameUI/finui/VBoxContainer" unique_id=514302127]
 custom_minimum_size = Vector2(50, 20)
 layout_mode = 2
+theme_override_colors/font_color = Color(0.039215688, 0.23137255, 0.36078432, 1)
+theme_override_font_sizes/font_size = 8
 text = "主页面"
 
 [node name="setting" type="Button" parent="GameUI/finui/VBoxContainer" unique_id=1143040445]
 visible = false
 custom_minimum_size = Vector2(50, 20)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 8
 text = "设置"
 
 [node name="FinuiPlayer" type="AnimationPlayer" parent="GameUI/finui" unique_id=604227516]

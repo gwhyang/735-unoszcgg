@@ -1,0 +1,21 @@
+[gd_resource type="Theme" format=3 uid="uid://c4if8ppgo1rbo"]
+
+[ext_resource type="Texture2D" uid="uid://c8quwv6iuw8wo" path="res://asset/button.png" id="1_lxbtk"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_raubo"]
+texture = ExtResource("1_lxbtk")
+region_rect = Rect2(0, 0, 64, 64)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lxbtk"]
+load_path = "res://.godot/imported/button.png-96d8be523ec17955b012b416b19ba9ac.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pxw1s"]
+texture = SubResource("CompressedTexture2D_lxbtk")
+region_rect = Rect2(0, 0, 64, 64)
+modulate_color = Color(0.21710122, 0.21710122, 0.21710122, 1)
+
+[resource]
+Button/styles/focus = SubResource("StyleBoxTexture_raubo")
+Button/styles/hover = SubResource("StyleBoxTexture_raubo")
+Button/styles/normal = SubResource("StyleBoxTexture_raubo")
+Button/styles/pressed = SubResource("StyleBoxTexture_pxw1s")

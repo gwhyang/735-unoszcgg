@@ -1,9 +1,12 @@
 [gd_scene format=3 uid="uid://cb6s73ldxduso"]
 
 [ext_resource type="Script" uid="uid://bpy1oj36dcf2j" path="res://class/level_button.gd" id="1_b6ka3"]
+[ext_resource type="Theme" uid="uid://c4if8ppgo1rbo" path="res://gametheme.tres" id="1_tclme"]
 
 [node name="LevelButton" type="Button" unique_id=630706959]
 custom_minimum_size = Vector2(50, 50)
+theme = ExtResource("1_tclme")
+theme_override_colors/font_color = Color(0.039215688, 0.23137255, 0.36078432, 1)
 theme_override_font_sizes/font_size = 24
 text = "0"
 script = ExtResource("1_b6ka3")

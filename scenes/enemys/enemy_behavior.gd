@@ -10,7 +10,7 @@ enum BehaviorType {
 
 @export var behavior_type:BehaviorType = BehaviorType.DIRECT
 @export var speed:float = 70.0
-@export var target_update_interval:float = 0.2
+@export var target_update_interval:float = 1.0
 @export var patrol_start_radius:float = 80.0
 @export var patrol_radius_growth:float = 12.0
 @export var patrol_max_radius:float = 360.0
@@ -39,6 +39,7 @@ func _ready() -> void:
 	enemy = get_parent() as CharacterBody2D
 	spawn_position = enemy.global_position
 	current_target = spawn_position
+	target_update_timer = randf_range(0.0, target_update_interval)
 	navigation_agent.path_desired_distance = patrol_reach_distance
 	navigation_agent.target_desired_distance = patrol_reach_distance
 
