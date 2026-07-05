@@ -62,6 +62,8 @@ const MENU:String = "uid://cx1yr4eluys35"
 
 func _ready() -> void:
 	get_tree().root.set_canvas_cull_mask_bit(1,false)
+	if not EventBus.spawn_requested.is_connected(spawn):
+		EventBus.spawn_requested.connect(spawn)
 	_setup_chain_drawer()
 	set_player(ship)
 	hp_container.set_hp(max_hp)
@@ -111,6 +113,26 @@ func set_player(player:Player):
 	ship.iangular_speed = iangular_speed
 	ship.max_hp = max_hp
 	ship.hp = max_hp
+
+func spawn(scene:PackedScene, spawn_position:Vector2 = Vector2.INF, spawn_rotation:float = INF, spawn_scale:Vector2 = Vector2.INF) -> Node2D:
+	if scene == null:
+		return null
+
+	var node:Node = scene.instantiate()
+	if not node is Node2D:
+		node.queue_free()
+		return null
+
+	var node_2d:Node2D = node as Node2D
+	if spawn_position != Vector2.INF:
+		node_2d.global_position = spawn_position
+	if spawn_rotation != INF:
+		node_2d.global_rotation = spawn_rotation
+	if spawn_scale != Vector2.INF:
+		node_2d.scale = spawn_scale
+
+	add_child(node_2d)
+	return node_2d
 
 func _start_chain_shake() -> void:
 	var chain_length:float = ship.global_position.distance_to(anchor.global_position)
