@@ -1,6 +1,6 @@
 extends Node2D
 @export var is_rotate:bool = true
-@export var rotation_offset:float = PI * 0.5
+@export var rotation_offset:float = -0.5*PI
 @export var min_move_distance:float = 0.1
 
 var last_global_position:Vector2

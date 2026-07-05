@@ -439,6 +439,94 @@ _data = {
 &"win": SubResource("Animation_cxy21")
 }
 
+[sub_resource type="Animation" id="Animation_gbmev"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("finui/interval:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("finui/interval:material:shader_parameter/animation_progress")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_muost"]
+resource_name = "cover"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("finui/interval:material:shader_parameter/animation_progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("finui/interval:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_7eqg7"]
+resource_name = "reveal"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("finui/interval:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("finui/interval:material:shader_parameter/animation_progress")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l345v"]
+_data = {
+&"RESET": SubResource("Animation_gbmev"),
+&"cover": SubResource("Animation_muost"),
+&"reveal": SubResource("Animation_7eqg7")
+}
+
 [node name="level" type="Node2D" unique_id=1061596412]
 script = ExtResource("1_p8yh6")
 high_speed = 800.0
@@ -624,6 +712,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="interval" type="ColorRect" parent="GameUI/finui" unique_id=712896015]
+visible = false
 material = SubResource("ShaderMaterial_57qmd")
 layout_mode = 1
 anchors_preset = 15
@@ -698,6 +787,10 @@ text = "设置"
 [node name="FinuiPlayer" type="AnimationPlayer" parent="GameUI/finui" unique_id=604227516]
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_ycdy4")
+
+[node name="cover" type="AnimationPlayer" parent="GameUI" unique_id=1751813378]
+libraries/ = SubResource("AnimationLibrary_l345v")
+autoplay = &"reveal"
 
 [connection signal="fast" from="ship" to="." method="_on_ship_fast"]
 [connection signal="fast" from="ship" to="camera carrier/Camera2D" method="_on_ship_fast"]

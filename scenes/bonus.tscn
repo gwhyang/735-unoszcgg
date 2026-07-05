@@ -10,7 +10,10 @@ radius = 408.1
 [node name="bonus" unique_id=1208423677 groups=["bnous"] instance=ExtResource("1_3no7k")]
 collision_layer = 16
 
-[node name="Sprite" parent="." index="0" unique_id=1268263205]
+[node name="pivot" parent="." index="0" unique_id=541762044]
+is_rotate = false
+
+[node name="Sprite" parent="pivot" index="0" unique_id=1268263205]
 modulate = Color(0.38517466, 0.67057884, 0.34749743, 1)
 position = Vector2(2, -1)
 texture = ExtResource("2_y4odb")
