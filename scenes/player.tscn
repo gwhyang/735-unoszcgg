@@ -1,17 +1,20 @@
 [gd_scene format=3 uid="uid://br54fy6kmtwhu"]
 
 [ext_resource type="Script" uid="uid://cefdh74h86re" path="res://scenes/player.gd" id="1_v4325"]
-[ext_resource type="Texture2D" uid="uid://37gw830scn73" path="res://icon.svg" id="3_78o8j"]
-[ext_resource type="Shader" path="res://asset/shaders/player_flash.gdshader" id="3_yf5fn"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_yf5fn"]
-radius = 14.04
+[ext_resource type="Texture2D" uid="uid://eolchq7sdebg" path="res://asset/船只/海盗船.png" id="3_qhqgy"]
+[ext_resource type="Shader" uid="uid://fmpneucv7uce" path="res://asset/shaders/player_flash.gdshader" id="3_yf5fn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yf5fn"]
 shader = ExtResource("3_yf5fn")
 shader_parameter/flash_amount = 0.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yf5fn"]
+radius = 16.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qhqgy"]
+radius = 20.024984
 
 [node name="ship" type="CharacterBody2D" unique_id=337205327 groups=["enemy"]]
 collision_layer = 2
@@ -21,8 +24,8 @@ script = ExtResource("1_v4325")
 
 [node name="shiptexture" type="Sprite2D" parent="." unique_id=79890555]
 material = SubResource("ShaderMaterial_yf5fn")
-scale = Vector2(0.16, 0.16)
-texture = ExtResource("3_78o8j")
+scale = Vector2(2, 2)
+texture = ExtResource("3_qhqgy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1444744825]
 shape = SubResource("CircleShape2D_g4v7s")
@@ -40,7 +43,7 @@ collision_layer = 0
 collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bonus" unique_id=1998079020]
-shape = SubResource("CircleShape2D_yf5fn")
+shape = SubResource("CircleShape2D_qhqgy")
 debug_color = Color(0.7702828, 0.29639828, 0.8309733, 0.41960785)
 
 [connection signal="area_entered" from="hit&hurt" to="." method="_on_hithurt_area_entered"]

@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://0i5ea1aeq3dc" path="res://scenes/enemys/enemy.tscn" id="1_3no7k"]
 [ext_resource type="Script" uid="uid://hbrrl8a4asln" path="res://scenes/bonus_behavior.gd" id="2_piybw"]
+[ext_resource type="Texture2D" uid="uid://dub0wsvwrsb5p" path="res://asset/船只/商船.png" id="2_y4odb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_y4odb"]
 radius = 408.1
@@ -11,6 +12,8 @@ collision_layer = 16
 
 [node name="Sprite" parent="." index="0" unique_id=1268263205]
 modulate = Color(0.38517466, 0.67057884, 0.34749743, 1)
+position = Vector2(2, -1)
+texture = ExtResource("2_y4odb")
 
 [node name="hurtbox" parent="." index="2" unique_id=503933743]
 collision_layer = 16
