@@ -28,6 +28,7 @@ grow_vertical = 2
 columns = 3
 
 [node name="LevelButton" parent="GridContainer" unique_id=630706959 instance=ExtResource("2_udkah")]
+custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 text = "1"
 level = "res://levels/level_1.tscn"
