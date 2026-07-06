@@ -82,6 +82,8 @@ func _physics_process(delta: float) -> void:
 		return
 	if Input.is_action_just_pressed("fire_anchor"):
 		target = get_global_mouse_position()
+		if (target-ship.global_position).length() < raise_distance:
+			return
 		set_anchor(true)
 		SoundManager.sfx_play("click")
 		if true:
