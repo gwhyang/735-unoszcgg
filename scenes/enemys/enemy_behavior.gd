@@ -9,10 +9,10 @@ enum BehaviorType {
 }
 
 @export var behavior_type:BehaviorType = BehaviorType.DIRECT
-@export var speed:float = 70.0
-@export var target_update_interval:float = 2.0
-@export var close_target_update_interval:float = 0.25
-@export var close_target_distance:float = 120.0
+@export var speed:float = 600.0
+@export var target_update_interval:float = 0.7
+@export var close_target_update_interval:float = 0.2
+@export var close_target_distance:float = 220.0
 @export var patrol_start_radius:float = 80.0
 @export var patrol_radius_growth:float = 12.0
 @export var patrol_max_radius:float = 360.0

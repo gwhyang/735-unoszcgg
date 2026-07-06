@@ -45,7 +45,6 @@ debug_color = Color(0.42484996, 0.460311, 1, 0.41960785)
 [node name="ai" type="Node2D" parent="." unique_id=597079033]
 script = ExtResource("4_5uy6h")
 behavior_type = 1
-speed = 500.0
 
 [node name="alert_area" type="Area2D" parent="ai" unique_id=1833113992]
 collision_layer = 0
