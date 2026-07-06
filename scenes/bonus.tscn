@@ -14,7 +14,6 @@ collision_layer = 16
 is_rotate = false
 
 [node name="Sprite" parent="pivot" index="0" unique_id=1268263205]
-modulate = Color(0.38517466, 0.67057884, 0.34749743, 1)
 position = Vector2(2, -1)
 texture = ExtResource("2_y4odb")
 

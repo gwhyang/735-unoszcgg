@@ -1,6 +1,7 @@
 extends SummonPoint
 
 @export var summon_interval:float = 3.0
+@export var summon_ditter:float = 0.4
 
 @onready var visible_on_screen_notifier:VisibleOnScreenNotifier2D = $VisibleOnScreenNotifier2D
 
@@ -8,7 +9,7 @@ var countdown:float
 var summoned_node:Node2D
 
 func _ready() -> void:
-	countdown = summon_interval
+	countdown = summon_interval+randf()*summon_ditter
 
 func _process(delta: float) -> void:
 	if _has_summoned_node():
@@ -25,7 +26,7 @@ func _process(delta: float) -> void:
 		return
 
 	summoned_node.global_position = _get_random_position_in_visible_rect()
-	countdown = summon_interval
+	countdown = summon_interval+randf()*summon_ditter
 
 func _has_summoned_node() -> bool:
 	if summoned_node == null:
