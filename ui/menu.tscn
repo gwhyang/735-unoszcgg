@@ -192,11 +192,18 @@ text = "2"
 level = "res://levels/level_2.tscn"
 
 [node name="LevelButton3" parent="GridContainer" unique_id=2133035758 instance=ExtResource("2_udkah")]
+visible = false
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 text = "3
 "
 level = "res://levels/level_3.tscn"
+
+[node name="LevelButton4" parent="GridContainer" unique_id=1418976078 instance=ExtResource("2_udkah")]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+text = "无限模式"
+level = "res://levels/level_4.tscn"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=425705894]
 libraries/ = SubResource("AnimationLibrary_cp6tm")

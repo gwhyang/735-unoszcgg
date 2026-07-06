@@ -55,6 +55,9 @@ var chain_drawer:ChainDrawer
 var current_count:int =0:
 	set(v):
 		current_count = v
+		if infnite:
+			kill_count_label.text = "击杀： "+str(current_count)
+			return
 		kill_count_label.text = "击杀： "+str(current_count)+"/"+str(target_kill_count)
 var enable_input = true
 
