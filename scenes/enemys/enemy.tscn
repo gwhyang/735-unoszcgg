@@ -57,6 +57,7 @@ debug_color = Color(0.80449617, 0.39392877, 0.36812732, 0.35686275)
 
 [node name="NavigationAgent" type="NavigationAgent2D" parent="ai" unique_id=879899663]
 unique_name_in_owner = true
+avoidance_enabled = true
 
 [connection signal="hurt" from="hurtbox" to="." method="destory"]
 [connection signal="body_entered" from="ai/alert_area" to="ai" method="_on_alert_area_body_entered"]

@@ -11,6 +11,8 @@ enum BehaviorType {
 @export var behavior_type:BehaviorType = BehaviorType.DIRECT
 @export var speed:float = 70.0
 @export var target_update_interval:float = 2.0
+@export var close_target_update_interval:float = 0.25
+@export var close_target_distance:float = 120.0
 @export var patrol_start_radius:float = 80.0
 @export var patrol_radius_growth:float = 12.0
 @export var patrol_max_radius:float = 360.0
@@ -39,7 +41,7 @@ func _ready() -> void:
 	enemy = get_parent() as CharacterBody2D
 	spawn_position = enemy.global_position
 	current_target = spawn_position
-	target_update_timer = randf_range(0.0, target_update_interval)
+	target_update_timer = randf_range(0.0, _get_target_update_interval())
 	navigation_agent.path_desired_distance = patrol_reach_distance
 	navigation_agent.target_desired_distance = patrol_reach_distance
 
@@ -50,10 +52,13 @@ func _physics_process(delta: float) -> void:
 
 	exist_time += delta
 	target_update_timer -= delta
+	var request_interval := _get_target_update_interval()
+	if target_update_timer > request_interval:
+		target_update_timer = request_interval
 	if target_update_timer <= 0.0:
-		target_update_timer = target_update_interval
 		current_target = _get_target()
 		navigation_agent.target_position = current_target
+		target_update_timer = _get_target_update_interval()
 
 	var next_position := current_target
 	if not navigation_agent.is_navigation_finished():
@@ -96,6 +101,12 @@ func _get_target() -> Vector2:
 			return _get_near_far_target()
 		_:
 			return player.global_position
+
+
+func _get_target_update_interval() -> float:
+	if enemy.global_position.distance_to(current_target) <= close_target_distance:
+		return maxf(close_target_update_interval, 0.001)
+	return maxf(target_update_interval, 0.001)
 
 
 func _should_avoid_player() -> bool:
