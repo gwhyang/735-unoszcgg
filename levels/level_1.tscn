@@ -85,7 +85,7 @@ offset_top = 199.0
 offset_right = 3335.0
 offset_bottom = 336.0
 theme_override_font_sizes/font_size = 32
-text = "i长按可以转弯"
+text = "长按可以转弯"
 
 [node name="Label5" type="Label" parent="intro" index="6" unique_id=1573139781]
 visible = false
