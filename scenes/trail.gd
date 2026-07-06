@@ -3,7 +3,7 @@ extends Line2D
 @export var max_point_count:int = 7
 @export var points_per_second:float = 60.0
 
-@onready var ship: Player = $"../.."
+@export var ship: Node2D
 
 var add_point_time:float = 0.0
 
@@ -18,6 +18,7 @@ func _process(delta: float) -> void:
 			if get_point_count() > max_point_count:
 				remove_point(0)
 			add_point(ship.global_position)
+		points[-1] = ship.global_position
 	else:
 		add_point_time = 0.0
 		if get_point_count() > 0:

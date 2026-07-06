@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cj2n8xsryrfdj" path="res://levels/main.gd" id="1_p8yh6"]
 [ext_resource type="TileSet" uid="uid://snif4vur7gec" path="res://disable/Tilesets/map_tileset.tres" id="2_1jtsu"]
 [ext_resource type="PackedScene" uid="uid://br54fy6kmtwhu" path="res://scenes/player.tscn" id="3_f811g"]
+[ext_resource type="PackedScene" uid="uid://8ohhsdu6b26b" path="res://scenes/visual/explosion.tscn" id="3_gbmev"]
 [ext_resource type="Script" uid="uid://cwyfm1n5mpdfy" path="res://class/camera_carriar.gd" id="4_f3act"]
 [ext_resource type="Script" uid="uid://chog1x1ci2kam" path="res://scenes/camera.gd" id="5_cxy21"]
 [ext_resource type="Script" uid="uid://pinu0rh8y5fq" path="res://scenes/trail.gd" id="5_v3eec"]
@@ -538,7 +539,7 @@ tracks/1/path = NodePath("finui/interval:material:shader_parameter/animation_pro
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0.13333334, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [1.0, 0.0]
@@ -579,6 +580,9 @@ tile_set = ExtResource("2_1jtsu")
 
 [node name="SummonPoints" type="Node2D" parent="." unique_id=1564863899]
 
+[node name="Explosion" parent="SummonPoints" unique_id=1625184404 instance=ExtResource("3_gbmev")]
+position = Vector2(-1287, -23)
+
 [node name="ship" parent="." unique_id=1596945220 groups=["player"] instance=ExtResource("3_f811g")]
 unique_name_in_owner = true
 z_index = 1
@@ -586,15 +590,16 @@ position = Vector2(143, 117)
 
 [node name="trail2" type="Node" parent="ship" unique_id=878088483]
 
-[node name="Line2D" type="Line2D" parent="ship/trail2" unique_id=902620161]
+[node name="Line2D" type="Line2D" parent="ship/trail2" unique_id=902620161 node_paths=PackedStringArray("ship")]
 show_behind_parent = true
-width = 27.0
+width = 18.0
 width_curve = SubResource("Curve_lquwl")
 gradient = SubResource("Gradient_7mycd")
 joint_mode = 2
 round_precision = 16
 script = ExtResource("5_v3eec")
 max_point_count = 25
+ship = NodePath("../..")
 
 [node name="camera carrier" type="Node2D" parent="." unique_id=1577102979 node_paths=PackedStringArray("followed")]
 position = Vector2(143.00002, 117.00001)
