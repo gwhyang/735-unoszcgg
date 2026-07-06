@@ -583,7 +583,6 @@ tile_set = ExtResource("2_1jtsu")
 unique_name_in_owner = true
 z_index = 1
 position = Vector2(143, 117)
-dizzy_time = 0.5
 
 [node name="trail2" type="Node" parent="ship" unique_id=878088483]
 
