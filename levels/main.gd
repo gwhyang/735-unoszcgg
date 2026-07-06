@@ -14,6 +14,7 @@ class ChainDrawer:
 
 enum {DRIFT,SHOOT,TOWRAD}
 @export_group("level_setting")
+@export var infnite:bool = false
 @export var target_kill_count:int = 10
 @export_group("game message")
 @export var high_speed:float = 2300
@@ -67,7 +68,7 @@ func _ready() -> void:
 	_setup_chain_drawer()
 	set_player(ship)
 	hp_container.set_hp(max_hp)
-	current_count = target_kill_count
+	current_count = 0
 	_update_speed_label()
 	
 func _process(delta: float) -> void:
@@ -198,8 +199,10 @@ func lose():
 	pass
 
 func _on_ship_hit_ship() -> void:
-	current_count -= 1
-	if current_count<=0:
+	current_count += 1
+	if infnite:
+		return
+	if current_count>=target_kill_count:
 		win()
 
 
