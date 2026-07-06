@@ -46,5 +46,12 @@ collision_mask = 16
 shape = SubResource("CircleShape2D_qhqgy")
 debug_color = Color(0.7702828, 0.29639828, 0.8309733, 0.41960785)
 
+[node name="dizzy" type="Label" parent="." unique_id=81924072]
+offset_left = -9.0
+offset_top = -53.0
+offset_right = 31.0
+offset_bottom = -31.0
+text = "😵‍💫"
+
 [connection signal="area_entered" from="hit&hurt" to="." method="_on_hithurt_area_entered"]
 [connection signal="area_entered" from="bonus" to="." method="_on_bonus_area_entered"]

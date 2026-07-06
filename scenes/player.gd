@@ -2,6 +2,7 @@ extends CharacterBody2D
 class_name Player
 
 signal hp_changed(new_hp:int)
+signal bounced
 signal hit_ship
 signal ship_hurt
 signal fast
@@ -9,11 +10,16 @@ signal slow
 @export var is_bouncing_hurt:bool = false
 @export var fast_buffer:float = 0.2
 @export var invincible_time:float = 1.0
+@export var dizzy_time:float = 1.0
 @export var invincible_flash_interval:float = 0.08
 
 @onready var game: Node2D = $".."
 @onready var anchor: Area2D = %anchor
 @onready var shiptexture: Sprite2D = $shiptexture
+@onready var dizzy: Label = $dizzy
+
+
+
 var high_speed:float = 2300
 var damp:float = 0.0
 var min_accler:float = 70
@@ -54,6 +60,14 @@ var is_fast:bool=false:
 		else:
 			slow.emit()
 var fast_buffer_timer:float
+var dizzy_timer:float:
+	set(v):
+		if v>0:
+			dizzy.show()
+		else :
+			dizzy.hide()
+		dizzy_timer = v
+
 
 func _ready() -> void:
 	_set_flash_amount(0.0)
@@ -64,6 +78,8 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	fast_buffer_timer -= delta
+	dizzy_timer -= delta
+	
 	_process_invincible(delta)
 	if hp>0:
 		process_move(delta)
@@ -72,6 +88,10 @@ func _physics_process(delta: float) -> void:
 		var speed_after_loss := vel.length() * (1.0 - collision_speed_loss)
 		var speed_after_limit = min(speed_after_loss, collision_max_speed)
 		vel = vel.bounce(collision.get_normal()).normalized() * speed_after_limit
+		bounced.emit()
+		game.set_anchor(false)
+		if dizzy_time>0:
+			dizzy_timer = dizzy_time
 		if is_bouncing_hurt:
 			hurt()
 

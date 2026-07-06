@@ -632,6 +632,7 @@ visible = false
 scale = Vector2(0.425, 0.425)
 
 [node name="shiptexture" type="Sprite2D" parent="anchor" unique_id=771469853]
+position = Vector2(0, 16.470589)
 scale = Vector2(2, 2)
 texture = ExtResource("7_qlvc7")
 

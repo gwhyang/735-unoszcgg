@@ -78,6 +78,8 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	if not enable_input:
 		return
+	if ship.dizzy_timer>0:
+		return
 	if Input.is_action_just_pressed("fire_anchor"):
 		target = get_global_mouse_position()
 		set_anchor(true)
