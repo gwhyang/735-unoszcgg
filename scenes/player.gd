@@ -8,6 +8,7 @@ signal ship_hurt
 signal fast
 signal slow
 @export var is_bouncing_hurt:bool = false
+@export var is_pick_anchor_auto:bool = false
 @export var fast_buffer:float = 0.2
 @export var invincible_time:float = 1.0
 @export var dizzy_time:float = 1.0
@@ -99,7 +100,7 @@ func process_move(delta:float):
 	var dir:Vector2
 	if is_floowing_anchor:
 		dir= anchor.global_position-global_position
-		if dir.length() < raise_distance:
+		if is_pick_anchor_auto and dir.length() < raise_distance:
 			game.set_anchor(false)
 			return
 		var dv:=(0.6+0.5*(cos(dir.angle_to(vel))))*ideal_angular_speed*ideal_angular_speed* delta* dir.normalized()/dir.length()#1这种加速快，回头有点笨的
