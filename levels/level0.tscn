@@ -608,7 +608,7 @@ follow_damp = 1.765
 position = Vector2(8.999984, 5.999992)
 script = ExtResource("5_cxy21")
 basic_zoom = Vector2(1, 1)
-zoom_speed = 0.4
+zoom_down_speed = 0.1
 metadata/_custom_type_script = "uid://dhjww4ioqn212"
 
 [node name="ColorRect" type="ColorRect" parent="camera carrier" unique_id=1748382319]
