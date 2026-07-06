@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://bt3vcsqopgo65" path="res://asset/sfx/explosion.wav" id="4_myd8m"]
 [ext_resource type="AudioStream" uid="uid://niks82pjh8fa" path="res://asset/sfx/powerUp (1).wav" id="5_dsen0"]
 [ext_resource type="AudioStream" uid="uid://bh42cf0n87w6n" path="res://asset/sfx/powerUp (2).wav" id="7_myd8m"]
+[ext_resource type="AudioStream" uid="uid://vtoyg0ljjnxt" path="res://asset/bgm/darren_hirst-gamer-music-140-bpm-355954.mp3" id="8_dsen0"]
 
 [node name="SoundManager" type="Node" unique_id=706504156]
 process_mode = 3
@@ -33,3 +34,8 @@ stream = ExtResource("5_dsen0")
 stream = ExtResource("7_myd8m")
 
 [node name="Music" type="Node" parent="." unique_id=877576683]
+
+[node name="bgm" type="AudioStreamPlayer" parent="Music" unique_id=799839617]
+stream = ExtResource("8_dsen0")
+autoplay = true
+parameters/looping = true

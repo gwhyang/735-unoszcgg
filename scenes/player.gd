@@ -6,6 +6,7 @@ signal hit_ship
 signal ship_hurt
 signal fast
 signal slow
+@export var is_bouncing_hurt:bool = false
 @export var fast_buffer:float = 0.2
 @export var invincible_time:float = 1.0
 @export var invincible_flash_interval:float = 0.08
@@ -71,7 +72,9 @@ func _physics_process(delta: float) -> void:
 		var speed_after_loss := vel.length() * (1.0 - collision_speed_loss)
 		var speed_after_limit = min(speed_after_loss, collision_max_speed)
 		vel = vel.bounce(collision.get_normal()).normalized() * speed_after_limit
-		hurt()
+		if is_bouncing_hurt:
+			hurt()
+
 func process_move(delta:float):
 	var dir:Vector2
 	if is_floowing_anchor:

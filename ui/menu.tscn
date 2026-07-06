@@ -1,17 +1,19 @@
 [gd_scene format=3 uid="uid://cx1yr4eluys35"]
 
 [ext_resource type="Script" uid="uid://csmldc2lu18d5" path="res://ui/menu.gd" id="1_bwjgb"]
+[ext_resource type="Texture2D" uid="uid://crdshec0c57cr" path="res://asset/标题/标题/微信图片_20260705131456_262_228.png" id="2_jbsda"]
 [ext_resource type="PackedScene" uid="uid://cb6s73ldxduso" path="res://ui/level_button.tscn" id="2_udkah"]
-[ext_resource type="Texture2D" uid="uid://dk5g7ppk46ult" path="res://asset/标题/标题.jpg" id="3_2ot4n"]
-[ext_resource type="Texture2D" uid="uid://dgwnknoqm35ct" path="res://asset/标题/标题2.jpg" id="4_fcydj"]
+[ext_resource type="Texture2D" uid="uid://bsntbyumvt76t" path="res://asset/title.png" id="3_0bcp5"]
+[ext_resource type="Texture2D" uid="uid://dtpkhm0aw7bx8" path="res://asset/标题/标题/标题1-1.png" id="4_fcydj"]
 [ext_resource type="Theme" uid="uid://c4if8ppgo1rbo" path="res://gametheme.tres" id="5_fcydj"]
+[ext_resource type="Texture2D" uid="uid://cdedconrhga0i" path="res://asset/标题/标题/标题1.png" id="5_jbsda"]
 
 [sub_resource type="Animation" id="Animation_jbsda"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("HBoxContainer:visible")
+tracks/0/path = NodePath("GridContainer:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -23,26 +25,26 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("GridContainer:visible")
+tracks/1/path = NodePath("start:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("start:visible")
+tracks/2/path = NodePath("TextureRect4:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_0bcp5"]
@@ -50,7 +52,7 @@ resource_name = "levels"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("HBoxContainer:visible")
+tracks/0/path = NodePath("GridContainer:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -62,19 +64,19 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("GridContainer:visible")
+tracks/1/path = NodePath("start:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("start:visible")
+tracks/2/path = NodePath("TextureRect4:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -96,31 +98,31 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("HBoxContainer:visible")
+tracks/1/path = NodePath("GridContainer:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true]
+"values": [false, true]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("GridContainer:visible")
+tracks/2/path = NodePath("TextureRect4:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [false]
+"values": [true, false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cp6tm"]
@@ -138,6 +140,28 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_bwjgb")
+
+[node name="TextureRect3" type="TextureRect" parent="." unique_id=1450099008]
+layout_mode = 0
+offset_left = -87.0
+offset_top = -120.0
+offset_right = 721.0
+offset_bottom = 368.0
+texture = ExtResource("2_jbsda")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="TextureRect4" type="TextureRect" parent="." unique_id=364705269]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.17, 1.17)
+texture = ExtResource("3_0bcp5")
+expand_mode = 1
+stretch_mode = 4
 
 [node name="GridContainer" type="GridContainer" parent="." unique_id=635827771]
 layout_mode = 1
@@ -174,32 +198,13 @@ text = "3
 "
 level = "res://levels/level_3.tscn"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1523222818]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -97.0
-offset_top = 27.0
-offset_right = 97.0
-offset_bottom = 91.0
-grow_horizontal = 2
-alignment = 2
-
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer" unique_id=1400259427]
-layout_mode = 2
-texture = ExtResource("3_2ot4n")
-
-[node name="TextureRect2" type="TextureRect" parent="HBoxContainer" unique_id=2117436735]
-layout_mode = 2
-texture = ExtResource("4_fcydj")
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=425705894]
 libraries/ = SubResource("AnimationLibrary_cp6tm")
 autoplay = &"menu"
 
 [node name="start" type="Button" parent="." unique_id=1817871460]
 visible = false
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -207,13 +212,34 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -36.0
-offset_top = -15.5
+offset_top = -15.0
 offset_right = 36.0
-offset_bottom = 15.5
+offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("5_fcydj")
-theme_override_colors/font_color = Color(0.039215688, 0.23137255, 0.36078432, 1)
+theme_override_colors/font_color = Color(0.078431375, 0.41568628, 0.47843137, 1)
+theme_override_font_sizes/font_size = 12
 text = "开始游戏"
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1400259427]
+visible = false
+layout_mode = 0
+offset_left = -53.0
+offset_top = 20.999998
+offset_right = 107.0
+offset_bottom = 85.0
+scale = Vector2(1.785, 1.785)
+texture = ExtResource("4_fcydj")
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=2117436735]
+visible = false
+layout_mode = 0
+offset_left = 227.0
+offset_top = 17.0
+offset_right = 387.0
+offset_bottom = 81.0
+scale = Vector2(1.785, 1.785)
+texture = ExtResource("5_jbsda")
 
 [connection signal="pressed" from="start" to="." method="_on_start_pressed"]

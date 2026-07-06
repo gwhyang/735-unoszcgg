@@ -1,6 +1,7 @@
 [gd_resource type="Theme" format=3 uid="uid://c4if8ppgo1rbo"]
 
 [ext_resource type="Texture2D" uid="uid://c8quwv6iuw8wo" path="res://asset/button.png" id="1_lxbtk"]
+[ext_resource type="FontFile" uid="uid://deelfh8muqr0l" path="res://asset/HYPixel11pxJ-2.ttf" id="1_pxw1s"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_raubo"]
 texture = ExtResource("1_lxbtk")
@@ -15,6 +16,7 @@ region_rect = Rect2(0, 0, 64, 64)
 modulate_color = Color(0.21710122, 0.21710122, 0.21710122, 1)
 
 [resource]
+Button/fonts/font = ExtResource("1_pxw1s")
 Button/styles/focus = SubResource("StyleBoxTexture_raubo")
 Button/styles/hover = SubResource("StyleBoxTexture_raubo")
 Button/styles/normal = SubResource("StyleBoxTexture_raubo")
