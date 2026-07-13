@@ -1,0 +1,192 @@
+[gd_scene format=3 uid="uid://chncm77hgcoqu"]
+
+[ext_resource type="Script" uid="uid://6ulfnujgpvsq" path="res://test/terrain test/terrain_painter.gd" id="1_terrain"]
+[ext_resource type="TileSet" uid="uid://snif4vur7gec" path="res://disable/Tilesets/map_tileset.tres" id="2_6k5ki"]
+
+[node name="TerrainPainter" type="Node2D" unique_id=1706585474]
+script = ExtResource("1_terrain")
+
+[node name="TerrainLayer" type="TileMapLayer" parent="." unique_id=1492042631]
+unique_name_in_owner = true
+tile_set = ExtResource("2_6k5ki")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1447800112]
+unique_name_in_owner = true
+zoom = Vector2(0.18, 0.18)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1901232047]
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer" unique_id=1958775802]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -218.0
+offset_top = 6.0
+offset_right = -6.0
+offset_bottom = 244.0
+grow_horizontal = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer" unique_id=2031336010]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer" unique_id=468639780]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="ButtonRow" type="HBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer" unique_id=606245352]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="GenerateButton" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/ButtonRow" unique_id=1670633684]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Gen"
+
+[node name="ClearButton" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/ButtonRow" unique_id=794448853]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Clr"
+
+[node name="BucketButton" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/ButtonRow" unique_id=1451488852]
+unique_name_in_owner = true
+layout_mode = 2
+toggle_mode = true
+text = "Fill"
+
+[node name="BrushRow" type="HBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1899136404]
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="BrushLabel" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/BrushRow" unique_id=738628641]
+layout_mode = 2
+text = "R"
+
+[node name="BrushSpinBox" type="SpinBox" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/BrushRow" unique_id=1820212245]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(54, 0)
+layout_mode = 2
+min_value = 1.0
+max_value = 30.0
+value = 2.0
+
+[node name="ThresholdRow" type="HBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer" unique_id=843233070]
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="ShallowLabel" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/ThresholdRow" unique_id=1731538260]
+layout_mode = 2
+text = "A"
+
+[node name="ShallowSpinBox" type="SpinBox" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/ThresholdRow" unique_id=1855436500]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(54, 0)
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 0.33
+
+[node name="DeepLabel" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/ThresholdRow" unique_id=1710343600]
+layout_mode = 2
+text = "B"
+
+[node name="DeepSpinBox" type="SpinBox" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/ThresholdRow" unique_id=1982926425]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(54, 0)
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 0.66
+
+[node name="Noise1Row" type="HBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="Noise1Label" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/Noise1Row"]
+layout_mode = 2
+text = "N1"
+
+[node name="NoiseScale1SpinBox" type="SpinBox" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/Noise1Row" unique_id=1203851001]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(54, 0)
+layout_mode = 2
+step = 0.01
+allow_lesser = true
+allow_greater = true
+value = 0.1
+
+[node name="NoiseFrequency1SpinBox" type="SpinBox" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/Noise1Row" unique_id=1203851002]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(72, 0)
+layout_mode = 2
+step = 0.001
+allow_lesser = true
+allow_greater = true
+value = 0.025
+
+[node name="Noise2Row" type="HBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="Noise2Label" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/Noise2Row"]
+layout_mode = 2
+text = "N2"
+
+[node name="NoiseScale2SpinBox" type="SpinBox" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/Noise2Row" unique_id=1203851003]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(54, 0)
+layout_mode = 2
+step = 0.01
+allow_lesser = true
+allow_greater = true
+value = 0.04
+
+[node name="NoiseFrequency2SpinBox" type="SpinBox" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/Noise2Row" unique_id=1203851004]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(72, 0)
+layout_mode = 2
+step = 0.001
+allow_lesser = true
+allow_greater = true
+value = 0.06
+
+[node name="Noise3Row" type="HBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="Noise3Label" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/Noise3Row"]
+layout_mode = 2
+text = "N3"
+
+[node name="NoiseScale3SpinBox" type="SpinBox" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/Noise3Row" unique_id=1203851005]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(54, 0)
+layout_mode = 2
+step = 0.01
+allow_lesser = true
+allow_greater = true
+value = 0.02
+
+[node name="NoiseFrequency3SpinBox" type="SpinBox" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/Noise3Row" unique_id=1203851006]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(72, 0)
+layout_mode = 2
+step = 0.001
+allow_lesser = true
+allow_greater = true
+value = 0.14
+
+[node name="InfoLabel" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer" unique_id=2018783081]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "Info"
+
+[node name="HoverLabel" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer" unique_id=169880753]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "Cell"
