@@ -101,11 +101,11 @@ max_value = 1.0
 step = 0.01
 value = 0.66
 
-[node name="Noise1Row" type="HBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Noise1Row" type="HBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer" unique_id=338967037]
 layout_mode = 2
 theme_override_constants/separation = 3
 
-[node name="Noise1Label" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/Noise1Row"]
+[node name="Noise1Label" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/Noise1Row" unique_id=894883832]
 layout_mode = 2
 text = "N1"
 
@@ -114,24 +114,24 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(54, 0)
 layout_mode = 2
 step = 0.01
-allow_lesser = true
-allow_greater = true
 value = 0.1
+allow_greater = true
+allow_lesser = true
 
 [node name="NoiseFrequency1SpinBox" type="SpinBox" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/Noise1Row" unique_id=1203851002]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(72, 0)
 layout_mode = 2
 step = 0.001
-allow_lesser = true
-allow_greater = true
 value = 0.025
+allow_greater = true
+allow_lesser = true
 
-[node name="Noise2Row" type="HBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Noise2Row" type="HBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer" unique_id=373462796]
 layout_mode = 2
 theme_override_constants/separation = 3
 
-[node name="Noise2Label" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/Noise2Row"]
+[node name="Noise2Label" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/Noise2Row" unique_id=1247445210]
 layout_mode = 2
 text = "N2"
 
@@ -140,24 +140,24 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(54, 0)
 layout_mode = 2
 step = 0.01
-allow_lesser = true
-allow_greater = true
 value = 0.04
+allow_greater = true
+allow_lesser = true
 
 [node name="NoiseFrequency2SpinBox" type="SpinBox" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/Noise2Row" unique_id=1203851004]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(72, 0)
 layout_mode = 2
 step = 0.001
-allow_lesser = true
-allow_greater = true
 value = 0.06
+allow_greater = true
+allow_lesser = true
 
-[node name="Noise3Row" type="HBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Noise3Row" type="HBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer" unique_id=934974080]
 layout_mode = 2
 theme_override_constants/separation = 3
 
-[node name="Noise3Label" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/Noise3Row"]
+[node name="Noise3Label" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/Noise3Row" unique_id=1598825860]
 layout_mode = 2
 text = "N3"
 
@@ -166,18 +166,18 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(54, 0)
 layout_mode = 2
 step = 0.01
-allow_lesser = true
-allow_greater = true
 value = 0.02
+allow_greater = true
+allow_lesser = true
 
 [node name="NoiseFrequency3SpinBox" type="SpinBox" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/Noise3Row" unique_id=1203851006]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(72, 0)
 layout_mode = 2
 step = 0.001
-allow_lesser = true
-allow_greater = true
 value = 0.14
+allow_greater = true
+allow_lesser = true
 
 [node name="InfoLabel" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer" unique_id=2018783081]
 unique_name_in_owner = true

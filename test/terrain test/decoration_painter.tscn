@@ -1,0 +1,299 @@
+[gd_scene format=3 uid="uid://bt81cpvhkad1h"]
+
+[ext_resource type="Script" uid="uid://b60ldek1n6l48" path="res://test/terrain test/decoration_painter.gd" id="1_decoration"]
+
+[node name="DecorationPainter" type="Node2D" unique_id=1949834296]
+script = ExtResource("1_decoration")
+wave_seed_noise_threshold = 0.94
+fish_spread_chance = 0.15
+
+[node name="DecorationLayer" type="TileMapLayer" parent="." unique_id=1312939488]
+unique_name_in_owner = true
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1761478515]
+unique_name_in_owner = true
+zoom = Vector2(0.32, 0.32)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1119631107]
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer" unique_id=1337964543]
+unique_name_in_owner = true
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -238.0
+offset_top = 6.0
+offset_right = -6.0
+offset_bottom = 132.0
+grow_horizontal = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer" unique_id=1717721542]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer" unique_id=914729092]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="ButtonRow" type="HBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer" unique_id=767033727]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="GenerateButton" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/ButtonRow" unique_id=894299852]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(38, 0)
+layout_mode = 2
+text = "Gen"
+
+[node name="RandomizeButton" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/ButtonRow" unique_id=2033285275]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(38, 0)
+layout_mode = 2
+text = "Rnd"
+
+[node name="ConfigButton" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/ButtonRow" unique_id=2033285276]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(38, 0)
+layout_mode = 2
+toggle_mode = true
+text = "Cfg"
+
+[node name="TypeRow" type="HBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1567687059]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="WaveTypeButton" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/TypeRow" unique_id=2084022135]
+unique_name_in_owner = true
+layout_mode = 2
+toggle_mode = true
+text = "Wave"
+
+[node name="GrassTypeButton" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/TypeRow" unique_id=2084022136]
+unique_name_in_owner = true
+layout_mode = 2
+toggle_mode = true
+text = "Grass"
+
+[node name="FishTypeButton" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/TypeRow" unique_id=2084022137]
+unique_name_in_owner = true
+layout_mode = 2
+toggle_mode = true
+text = "Fish"
+
+[node name="ViewRow" type="HBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1567687058]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="SeedViewButton" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/ViewRow" unique_id=2084022134]
+unique_name_in_owner = true
+layout_mode = 2
+toggle_mode = true
+text = "Seed"
+
+[node name="SpreadViewButton" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/ViewRow" unique_id=1943765788]
+unique_name_in_owner = true
+layout_mode = 2
+toggle_mode = true
+text = "Spread"
+
+[node name="FinalViewButton" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/ViewRow" unique_id=356919718]
+unique_name_in_owner = true
+layout_mode = 2
+toggle_mode = true
+text = "Final"
+
+[node name="InfoLabel" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer" unique_id=528500775]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Info"
+
+[node name="ParameterGrid" type="GridContainer" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1198844001]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/h_separation = 3
+theme_override_constants/v_separation = 2
+columns = 4
+
+[node name="SeedLabel" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/ParameterGrid" unique_id=1109994532]
+custom_minimum_size = Vector2(42, 0)
+layout_mode = 2
+text = "Seed"
+
+[node name="SeedSpinBox" type="SpinBox" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/ParameterGrid" unique_id=110010001]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(62, 0)
+layout_mode = 2
+max_value = 2147483647.0
+value = 240714.0
+allow_greater = true
+allow_lesser = true
+
+[node name="NoiseFrequencyLabel" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/ParameterGrid" unique_id=1539155439]
+custom_minimum_size = Vector2(42, 0)
+layout_mode = 2
+text = "Freq"
+
+[node name="NoiseFrequencySpinBox" type="SpinBox" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/ParameterGrid" unique_id=110010002]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(62, 0)
+layout_mode = 2
+step = 0.01
+value = 0.1
+allow_greater = true
+allow_lesser = true
+
+[node name="NoiseThresholdLabel" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/ParameterGrid" unique_id=650001126]
+custom_minimum_size = Vector2(42, 0)
+layout_mode = 2
+text = "Th"
+
+[node name="NoiseThresholdSpinBox" type="SpinBox" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/ParameterGrid" unique_id=110010003]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(62, 0)
+layout_mode = 2
+step = 0.01
+value = 0.72
+allow_greater = true
+allow_lesser = true
+
+[node name="RandomChanceLabel" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/ParameterGrid" unique_id=1672040319]
+custom_minimum_size = Vector2(42, 0)
+layout_mode = 2
+text = "Rand"
+
+[node name="RandomChanceSpinBox" type="SpinBox" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/ParameterGrid" unique_id=110010004]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(62, 0)
+layout_mode = 2
+step = 0.001
+value = 0.001
+allow_greater = true
+allow_lesser = true
+
+[node name="HorizontalSpreadLabel" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/ParameterGrid" unique_id=1661312130]
+custom_minimum_size = Vector2(42, 0)
+layout_mode = 2
+text = "H"
+
+[node name="HorizontalSpreadSpinBox" type="SpinBox" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/ParameterGrid" unique_id=110010005]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(62, 0)
+layout_mode = 2
+step = 0.01
+value = 0.6
+allow_greater = true
+allow_lesser = true
+
+[node name="VerticalSpreadLabel" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/ParameterGrid" unique_id=634353496]
+custom_minimum_size = Vector2(42, 0)
+layout_mode = 2
+text = "V"
+
+[node name="VerticalSpreadSpinBox" type="SpinBox" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/ParameterGrid" unique_id=110010006]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(62, 0)
+layout_mode = 2
+step = 0.01
+value = 0.2
+allow_greater = true
+allow_lesser = true
+
+[node name="SpreadIterationsLabel" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/ParameterGrid" unique_id=259320360]
+custom_minimum_size = Vector2(42, 0)
+layout_mode = 2
+text = "Iter"
+
+[node name="SpreadIterationsSpinBox" type="SpinBox" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/ParameterGrid" unique_id=110010007]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(62, 0)
+layout_mode = 2
+value = 5.0
+allow_greater = true
+allow_lesser = true
+
+[node name="SeagrassErodeChanceLabel" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/ParameterGrid" unique_id=110010008]
+custom_minimum_size = Vector2(42, 0)
+layout_mode = 2
+text = "Erode"
+
+[node name="SeagrassErodeChanceSpinBox" type="SpinBox" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/ParameterGrid" unique_id=110010009]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(62, 0)
+layout_mode = 2
+step = 0.01
+value = 0.5
+allow_greater = true
+allow_lesser = true
+
+[node name="SeagrassErodeChanceSpacerA" type="Control" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/ParameterGrid" unique_id=110010010]
+layout_mode = 2
+
+[node name="SeagrassErodeChanceSpacerB" type="Control" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/ParameterGrid" unique_id=110010011]
+layout_mode = 2
+
+[node name="FishSpreadChanceLabel" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/ParameterGrid" unique_id=110010012]
+custom_minimum_size = Vector2(42, 0)
+layout_mode = 2
+text = "FishP"
+
+[node name="FishSpreadChanceSpinBox" type="SpinBox" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/ParameterGrid" unique_id=110010013]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(62, 0)
+layout_mode = 2
+step = 0.01
+value = 0.35
+allow_greater = true
+allow_lesser = true
+
+[node name="FishSpreadChanceSpacerA" type="Control" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/ParameterGrid" unique_id=110010014]
+layout_mode = 2
+
+[node name="FishSpreadChanceSpacerB" type="Control" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/ParameterGrid" unique_id=110010015]
+layout_mode = 2
+
+[node name="FishDelete3x3Label" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/ParameterGrid" unique_id=110010016]
+custom_minimum_size = Vector2(42, 0)
+layout_mode = 2
+text = "F3Del"
+
+[node name="FishDelete3x3LineEdit" type="LineEdit" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/ParameterGrid" unique_id=110010017]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(62, 0)
+layout_mode = 2
+text = "6-9"
+
+[node name="FishSpawn5x5Label" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/ParameterGrid" unique_id=110010018]
+custom_minimum_size = Vector2(42, 0)
+layout_mode = 2
+text = "F5Grow"
+
+[node name="FishSpawn5x5LineEdit" type="LineEdit" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/ParameterGrid" unique_id=110010019]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(62, 0)
+layout_mode = 2
+text = "4-25"
+
+[node name="FishDelete5x5Label" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/ParameterGrid" unique_id=110010020]
+custom_minimum_size = Vector2(42, 0)
+layout_mode = 2
+text = "F5Del"
+
+[node name="FishDelete5x5LineEdit" type="LineEdit" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/ParameterGrid" unique_id=110010021]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(62, 0)
+layout_mode = 2
+text = "15-25"
+
+[node name="FishRangeSpacerA" type="Control" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/ParameterGrid" unique_id=110010022]
+layout_mode = 2
+
+[node name="FishRangeSpacerB" type="Control" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/ParameterGrid" unique_id=110010023]
+layout_mode = 2
+
+[node name="HoverLabel" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer" unique_id=2137812501]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Cell"

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsntbyumvt76t"
-path="res://.godot/imported/title.png-717f19236843734636810b60652a08d3.ctex"
+uid="uid://djq7ro0uql6t7"
+path="res://.godot/imported/海草1大型.png-0e980832553742ee3a42af6f2d8b35c7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/title.png"
-dest_files=["res://.godot/imported/title.png-717f19236843734636810b60652a08d3.ctex"]
+source_file="res://海草1大型.png"
+dest_files=["res://.godot/imported/海草1大型.png-0e980832553742ee3a42af6f2d8b35c7.ctex"]
 
 [params]
 

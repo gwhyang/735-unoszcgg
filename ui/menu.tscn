@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://csmldc2lu18d5" path="res://ui/menu.gd" id="1_bwjgb"]
 [ext_resource type="Texture2D" uid="uid://crdshec0c57cr" path="res://asset/标题/标题/微信图片_20260705131456_262_228.png" id="2_jbsda"]
 [ext_resource type="PackedScene" uid="uid://cb6s73ldxduso" path="res://ui/level_button.tscn" id="2_udkah"]
-[ext_resource type="Texture2D" uid="uid://bsntbyumvt76t" path="res://asset/title.png" id="3_0bcp5"]
+[ext_resource type="Texture2D" uid="uid://bsntbyumvt76t" path="res://title.png" id="3_0bcp5"]
 [ext_resource type="Texture2D" uid="uid://dtpkhm0aw7bx8" path="res://asset/标题/标题/标题1-1.png" id="4_fcydj"]
 [ext_resource type="Theme" uid="uid://c4if8ppgo1rbo" path="res://gametheme.tres" id="5_fcydj"]
 [ext_resource type="Texture2D" uid="uid://cdedconrhga0i" path="res://asset/标题/标题/标题1.png" id="5_jbsda"]
